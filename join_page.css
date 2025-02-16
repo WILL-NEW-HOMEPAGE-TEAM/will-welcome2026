@@ -1,0 +1,37 @@
+:root {
+  --shinonome: linear-gradient(91deg, #6f5878 0.02%, #4f648d 99.98%);
+  --blue_Kashmir: #52648c;
+  --gray: #535353;
+  --ivory: #fffcf7;
+  --purple_Kimberly: #6b5b7d;
+
+  --font_1: 70px;
+  --font_2: 48px;
+  --font_3: 32px;
+  --font_4: 20px;
+  --font_5: 16px;
+  --font_copyright: 18px;
+}
+
+.join-flow-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-header {
+  display: flex;
+  padding: 24px 32px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.will-logo {
+  flex-shrink: 0;
+}
+
+.link-box {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
