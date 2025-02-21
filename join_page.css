@@ -535,7 +535,7 @@ hamburger(ハンバーガーアイコン)
 
   .hamburger__line {
     position: absolute;
-    width: 50px;
+    width: 45px;
     height: 3px;
     right: 0;
     background-color: #000;
@@ -656,6 +656,7 @@ black-bg(ハンバーガーメニュー解除用bg)
 
   .join-condition-block {
     gap: 16px;
+    width: 100%;
   }
 
   .condition-title {
