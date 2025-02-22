@@ -162,7 +162,7 @@
   gap: 56px;
   align-self: stretch;
   border-bottom: 5px solid rgba(255, 255, 255, 0.3);
-  background: #fffcf7;
+  background: var(--ivory);
 }
 
 .join-title {
@@ -732,13 +732,6 @@ black-bg(ハンバーガーメニュー解除用bg)
     align-self: stretch;
   }
 
-  .event-title-frame {
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
   .event-title {
     font-size: var(--font_32);
   }
@@ -808,5 +801,14 @@ black-bg(ハンバーガーメニュー解除用bg)
 
   .copyright-text {
     font-size: var(--font_18);
+  }
+}
+
+@media (max-width: 1100px) {
+  .event-title-frame {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 8px;
   }
 }
