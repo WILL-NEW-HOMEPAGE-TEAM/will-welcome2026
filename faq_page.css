@@ -219,7 +219,7 @@
 
 .faq-block {
   display: flex;
-  width: 80%;
+  width: 100%;
   flex-direction: column;
   align-items: flex-start;
   gap: 13px;
@@ -472,7 +472,6 @@
   .faq-block {
     align-self: stretch;
     align-items: flex-start;
-    padding-left: 50px;
   }
 
   .footer-top {
