@@ -67,9 +67,9 @@
 }
 
 .text-link:hover {
-  text-decoration: underline solid 2px;
-  color: black;
+  background: var(--shinonome);
   transition: 0.3s;
+  color: var(--ivory);
 }
 
 .head-image-container {
