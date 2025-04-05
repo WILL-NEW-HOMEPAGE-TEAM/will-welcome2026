@@ -320,6 +320,7 @@
   display: flex;
   overflow: hidden;
   gap: 48px;
+  position: relative;
 }
 
 .slider {
@@ -327,7 +328,9 @@
   align-items: center;
   gap: 48px;
   align-self: stretch;
-  animation: slide-flow 20s infinite linear 1s both;
+  /* animation: slide-flow 20s infinite linear 1s both; */
+  will-change: transform;
+  flex-shrink: 0;
 }
 
 .slide {
@@ -343,14 +346,14 @@
   border-radius: 12px;
 }
 
-@keyframes slide-flow {
+/* @keyframes slide-flow {
   from {
-    transform: translateX(0);
+    transform: translateX(100px);
   }
   to {
-    transform: translateX(-65.4%);
+    transform: translateX(calc(-50% + 100px));
   }
-}
+} */
 
 .event-name {
   color: var(--gray);
