@@ -382,7 +382,7 @@
 .schedule {
   color: var(--ivory);
   font-family: var(--jomolhari);
-  font-size: var(--font_20);
+  font-size: 17px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -517,7 +517,7 @@
   letter-spacing: 0.72px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
   .nav-wrapper {
     display: flex;
   }
