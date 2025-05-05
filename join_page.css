@@ -418,6 +418,24 @@
   line-height: normal;
 }
 
+.apply-button-1 {
+  display: flex;
+  padding: 16px 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  background: var(--ivory, #fffcf7);
+  overflow: hidden;
+  color: #51658d;
+  text-overflow: ellipsis;
+  font-family: var(--noto);
+  font-size: var(--font_20);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
 .apply-text {
   overflow: hidden;
   color: var(--ivory);
@@ -756,6 +774,11 @@ black-bg(ハンバーガーメニュー解除用bg)
 
   .apply-button {
     color: var(--blue_Kashmir);
+  }
+
+  .apply-button-1 {
+    color: var(--blue_Kashmir);
+    padding: 16px 40px;
   }
 
   .background-logo {
