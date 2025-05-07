@@ -336,11 +336,10 @@
 }
 
 .event-title {
-  overflow: hidden;
+  white-space: nowrap;
   color: var(--ivory);
-  text-overflow: ellipsis;
   font-family: var(--noto);
-  font-size: var(--font_20);
+  font-size: var(--font_24);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
