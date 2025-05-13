@@ -336,11 +336,10 @@
 }
 
 .event-title {
-  overflow: hidden;
+  white-space: nowrap;
   color: var(--ivory);
-  text-overflow: ellipsis;
   font-family: var(--noto);
-  font-size: var(--font_20);
+  font-size: var(--font_24);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -382,7 +381,7 @@
 .schedule {
   color: var(--ivory);
   font-family: var(--jomolhari);
-  font-size: var(--font_20);
+  font-size: 17px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -403,6 +402,24 @@
 .apply-button {
   display: flex;
   padding: 16px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  background: var(--ivory, #fffcf7);
+  overflow: hidden;
+  color: #51658d;
+  text-overflow: ellipsis;
+  font-family: var(--noto);
+  font-size: var(--font_20);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.apply-button-1 {
+  display: flex;
+  padding: 16px 15px;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -517,7 +534,7 @@
   letter-spacing: 0.72px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
   .nav-wrapper {
     display: flex;
   }
@@ -756,6 +773,11 @@ black-bg(ハンバーガーメニュー解除用bg)
 
   .apply-button {
     color: var(--blue_Kashmir);
+  }
+
+  .apply-button-1 {
+    color: var(--blue_Kashmir);
+    padding: 16px 40px;
   }
 
   .background-logo {
