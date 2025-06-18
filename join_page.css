@@ -356,7 +356,14 @@
   line-height: normal;
 }
 
-.event-schedule-frame {
+.event-explanation {
+  display: flex;
+  color: var(--ivory);
+  font-size: var(--font_14);
+  font-style: normal;
+  font-weight: 400;
+}
+/* .event-schedule-frame {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -389,7 +396,7 @@
 
 .day {
   font-size: var(--font_16);
-}
+} */
 
 .application-button {
   display: flex;
@@ -419,7 +426,7 @@
 
 .apply-button-1 {
   display: flex;
-  padding: 16px 15px;
+  padding: 16px 55px;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -759,7 +766,7 @@ black-bg(ハンバーガーメニュー解除用bg)
     font-size: var(--font_16);
   }
 
-  .number {
+  /* .number {
     font-size: var(--font_32);
   }
 
@@ -768,6 +775,10 @@ black-bg(ハンバーガーメニュー解除用bg)
   }
 
   .day {
+    font-size: var(--font_24);
+  } */
+
+  .event-explanation {
     font-size: var(--font_24);
   }
 
