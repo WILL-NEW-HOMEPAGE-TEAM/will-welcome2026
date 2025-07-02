@@ -3,27 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WILL-JOIN-PAGE</title>
+    <title>WILL - 早稲田大学ITサークル | トップページ</title>
+    <meta name="description" content="WILLは早稲田大学のプログラミング・ITサークルです。完全無料でプログラミングが学べ、イベントや企業案件による成長も遊びもあるサークルです。" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Anton&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Noto+Sans+JP:wght@400;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Anton&family=Jomolhari&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Noto+Sans+JP:wght@400;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Anton&family=Jomolhari&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Noto+Sans+JP:wght@400;700&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jomolhari&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Noto+Sans+JP:wght@400;700&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Anton&family=Esteban&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jomolhari&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Noto+Sans+JP:wght@400;700&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jomolhari&family=Noto+Sans+JP:wght@400;700&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./top_page.css" />
@@ -32,43 +17,10 @@
   </head>
   <body>
     <section class="join-flow-container">
-      <header class="page-header">
-        <a class="will-logo" href=""
-          ><img src="./images/logo.svg" alt="TOPページへ戻る"
-        /></a>
-        <div id="nav-wrapper" class="nav-wrapper">
-          <div class="hamburger" id="js-hamburger">
-            <span class="hamburger__line hamburger__line--1"></span>
-            <span class="hamburger__line hamburger__line--2"></span>
-            <span class="hamburger__line hamburger__line--3"></span>
-          </div>
-          <nav class="sp-nav">
-            <ul>
-              <li><a href="" alt="">TOP</a></li>
-              <li><a href="" alt="">About Us</a></li>
-              <li><a href="" alt="">ゼミについて</a></li>
-              <li><a href="" alt="">活動紹介</a></li>
-              <li><a href="" alt="">イベント一覧</a></li>
-              <li><a href="" alt="">新歓・入会</a></li>
-              <li><a href="" alt="">FAQ・お問い合わせ</a></li>
-            </ul>
-          </nav>
-          <div class="black-bg" id="js-black-bg"></div>
-        </div>
-        <div class="link-box">
-          <a class="text-link" href="" alt="Top">Top</a>
-          <a class="text-link" href="" alt="About Us">About Us</a>
-          <a class="text-link" href="" alt="ゼミについて">ゼミについて</a>
-          <a class="text-link" href="" alt="活動紹介">活動紹介</a>
-          <a class="text-link" href="" alt="イベント一覧">イベント一覧</a>
-          <a class="text-link" href="" alt="新歓・入会">新歓・入会</a>
-          <a class="text-link" href="" alt="FAQ・お問い合わせ"
-            >FAQ・お問い合わせ</a
-          >
-        </div>
-      </header>
+      <!-- ヘッダー部分（共通化） -->
+      <div id="header-container"></div>
       <section class="head-image-container">
-        <img src="./images/top-page-image.png" alt="Top" />
+        <img src="./images/top-page-image.webp" alt="Top" />
         <div class="head-letter">Top</div>
       </section>
       <section class="about-will-section">
@@ -88,40 +40,40 @@
           <div class="carousel-track">
             <div class="carousel-inner">
               <div class="item">
-                <img src="./images/amongus.jpg" alt="" />
+                <img src="./images/amongus.webp" alt="" />
                 <div class="event-name">Among Usをプレイ！</div>
                 <div class="event-text">究極の心理戦となりました！</div>
               </div>
               <div class="item">
-                <img src="./images/bbq.jpg" alt="" />
+                <img src="./images/bbq.webp" alt="" />
                 <div class="event-name">BBQ</div>
                 <div class="event-text">自然の中でのBBQを楽しみました！</div>
               </div>
               <div class="item">
-                <img src="./images/dinner.JPG" alt="" />
+                <img src="./images/dinner.webp" alt="" />
                 <div class="event-name">打ち上げ</div>
                 <div class="event-text">
                   秋学期終了を祝して打ち上げをしました！
                 </div>
               </div>
               <div class="item">
-                <img src="./images/nazotoki.JPG" alt="" />
+                <img src="./images/nazotoki.webp" alt="" />
                 <div class="event-name">メトロ謎解き</div>
                 <div class="event-text">皆で頑張って謎解き中...</div>
               </div>
               <div class="item">
-                <img src="./images/tmc.jpg" alt="" />
+                <img src="./images/tmc.webp" alt="" />
                 <div class="event-name">TMC</div>
                 <div class="event-text">TMCでも謎解きをしてきました！</div>
               </div>
             </div>
           </div>
           <div class="move-buttons">
-            <img class="left" src="./images/arrow_left.png" alt="" />
-            <img class="right" src="./images/arrow_right.png" alt="" />
+            <img class="left" src="./images/arrow_left.webp" alt="" />
+            <img class="right" src="./images/arrow_right.webp" alt="" />
           </div>
         </div>
-        <a class="activity-button" href="">
+        <a class="activity-button" href="./activity_page.html">
           <div class="button-content-gray">
             <h4 class="button-text-gray">活動紹介はこちら</h4>
           </div>
@@ -136,7 +88,7 @@
             </div>
           </div>
         </div>
-        <a class="seminar-detail-button" href="">
+        <a class="seminar-detail-button" href="./seminar_page.html">
           <div class="button-content">
             <h4 class="button-text">ゼミの詳細はこちら</h4>
           </div>
@@ -189,38 +141,14 @@
             </div>
           </div>
         </div>
-        <a class="seminar-detail-button" href="">
+        <a class="seminar-detail-button" href="./join_page.html">
           <div class="button-content">
             <h4 class="button-text">入会フローについて詳しくはこちら</h4>
           </div>
         </a>
       </section>
-      <footer class="footer">
-        <div class="footer-top">
-          <div class="footer-sm-logo">
-            <a
-              class="x-logo"
-              href="https://x.com/pgwu_info?prefetchTimestamp=1739769263751&mx=2"
-              aria-label="x-logo"
-              ><img src="./images/x-logo.png" alt=""
-            /></a>
-            <a
-              class="instagram-logo"
-              href="https://www.instagram.com/pgwu_info/"
-              aria-label="instagram-logo"
-              ><img src="./images/instagram.svg" alt=""
-            /></a>
-          </div>
-          <div class="footer-logo">
-            <img src="./images/footer-logo.svg" alt="" />
-            <img src="./images/footer-full-logo.png" alt="" />
-          </div>
-        </div>
-        <div class="footer-copyright">
-          <img src="./images/copyright.svg" alt="" />
-          <p class="copyright-text">Waseda IT Leader Lab 2025</p>
-        </div>
-      </footer>
+      <!-- フッター部分（共通化） -->
+      <div id="footer-container"></div>
     </section>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
@@ -237,10 +165,10 @@
         let autoScrollInterval;
 
         // Save original sources for hover effects
-        const leftSrc = "./images/arrow_left.png";
-        const leftHoverSrc = "./images/arrow_left-hover.png";
-        const rightSrc = "./images/arrow_right.png";
-        const rightHoverSrc = "./images/arrow_right-hover.png";
+        const leftSrc = "./images/arrow_left.webp";
+        const leftHoverSrc = "./images/arrow_left-hover.webp";
+        const rightSrc = "./images/arrow_right.webp";
+        const rightHoverSrc = "./images/arrow_right-hover.webp";
 
         leftBtn.addEventListener(
           "mouseover",

@@ -613,7 +613,7 @@
     height: 100vh;
     background-color: var(--blue_Kashmir);
     transition: all 0.5s;
-    z-index: 100;
+    z-index: 200;
     overflow-y: auto; /* メニューが多くなったらスクロールできるように */
   }
 
