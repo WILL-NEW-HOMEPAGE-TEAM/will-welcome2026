@@ -1,0 +1,154 @@
+/* events.css - イベントページ固有のスタイル */
+
+/* 空白セクション */
+.white-space {
+  height: 100px;
+  background: var(--white);
+}
+
+/* イベントセクション */
+.event-section {
+  display: flex;
+  padding: 100px 110px 30px 110px;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  background-color: #50648c;
+}
+
+.event-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 56px;
+}
+
+.event-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.event-block img {
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.event-title-and-date {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.event-title {
+  color: var(--ivory);
+  text-align: center;
+  font-family: var(--noto);
+  font-size: var(--font_20);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.event-date {
+  color: var(--ivory);
+  font-family: var(--noto);
+  font-size: var(--font-16);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+.event-description {
+  display: flex;
+  padding: 11px 0px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  align-self: stretch;
+  border-top: 1px solid var(--ivory-50);
+  color: var(--ivory);
+  font-family: var(--noto);
+  font-size: var(--font_16);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* ページネーションボタン */
+.page-buttons {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.current-button {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  padding: 4px 12px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--ivory);
+  background-color: var(--ivory);
+  color: var(--blue_Kashmir);
+  cursor: pointer;
+}
+
+.button {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  padding: 4px 12px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--ivory-50);
+  cursor: pointer;
+}
+
+.button a {
+  text-decoration: none;
+  color: var(--ivory-50);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 900px) {
+  .white-space {
+    height: 0px;
+  }
+
+  .event-section {
+    padding: 100px 20px 30px 20px;
+  }
+
+  .event-list {
+    align-items: center;
+    gap: 24px;
+    width: 80%;
+  }
+
+  .event-block {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .event-content {
+    align-items: center;
+    width: 80%;
+  }
+}
