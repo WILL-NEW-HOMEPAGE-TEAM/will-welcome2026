@@ -82,9 +82,9 @@ body {
 }
 
 .will-logo {
-  flex-shrink: 0;
+  display: flex;
+  height: 100%;
 }
-
 .link-box {
   display: flex;
   align-items: center;
@@ -361,16 +361,18 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  margin: 160px 0 40px 0;
+  gap: 80px;
 }
 
 .footer-top {
   display: flex;
-  padding: 90px 0px 100px 0px;
   justify-content: center;
   align-items: center;
-  gap: 80px;
   align-self: stretch;
   background-color: var(--ivory);
+  gap: 80px;
 }
 
 .footer-sm-logo {
@@ -436,6 +438,36 @@ body {
 }
 
 /* ========================================
+   共通ナビゲーションスタイル
+   ======================================== */
+
+.nav {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #007bff;
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.nav-link.active {
+  color: #007bff;
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* ========================================
    共通ハンバーガーメニュースタイル
    ======================================== */
 
@@ -453,49 +485,39 @@ body {
     hamburger(ハンバーガーアイコン)
     =================================== */
   .hamburger {
-    position: absolute;
-    right: 30px;
-    top: 33px;
-    width: 50px;
-    height: 40px;
+    position: relative;
+    width: 32px;
+    height: 32px;
     cursor: pointer;
     z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    box-sizing: border-box;
   }
-
   .hamburger__line {
     position: absolute;
-    width: 50px;
+    left: 2.67px;
+    width: 26.67px;
     height: 3px;
-    right: 0;
-    background-color: #000;
+    background-color: #6b5b7d;
+    border-radius: 2px;
     transition: all 0.5s;
   }
-
-  .hamburger__line--1 {
-    top: 1px;
-  }
-
-  .hamburger__line--2 {
-    top: 18px;
-  }
-
-  .hamburger__line--3 {
-    top: 36px;
-  }
-
-  /*ハンバーガーがクリックされたら*/
+  .hamburger__line--1 { top: 6.5px; }
+  .hamburger__line--2 { top: 14.0px; }
+  .hamburger__line--3 { top: 21.5px; }
   .open .hamburger__line--1 {
     transform: rotate(-45deg);
-    top: 11px;
+    top: 14.0px;
   }
-
   .open .hamburger__line--2 {
     opacity: 0;
   }
-
   .open .hamburger__line--3 {
     transform: rotate(45deg);
-    top: 11px;
+    top: 14.0px;
   }
 
   /* 
@@ -574,9 +596,13 @@ body {
     bottom: 33px;
   }
 
+  .footer {
+    margin-top: 80px;
+    gap: 20px;
+  }
+
   .footer-top {
     flex-direction: column-reverse;
-    padding: 40px 0px 20px 0px;
     gap: 30px;
   }
 
