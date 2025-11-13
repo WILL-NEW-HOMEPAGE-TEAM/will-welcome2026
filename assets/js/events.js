@@ -26,22 +26,17 @@ const eventsData = [
   // }
 ];
 
-// アセットパスを取得する関数（main.jsと同じロジック）
-function getAssetsPath() {
+// アセットパスを取得する関数（main.jsの関数を使用）
+// main.jsのgetAssetsPath()が既に定義されている場合はそれを使用し、
+// 定義されていない場合のみフォールバック処理を行う
+function getAssetsPathForEvents() {
+  // main.jsのgetAssetsPath()が利用可能な場合はそれを使用
+  if (typeof getAssetsPath === 'function') {
+    return getAssetsPath();
+  }
+  
+  // フォールバック（main.jsが読み込まれていない場合）
   if (window.location.protocol === 'file:') {
-    const scriptTag = document.querySelector('script[src*="events.js"]');
-    if (scriptTag) {
-      const scriptSrc = scriptTag.getAttribute('src');
-      if (scriptSrc) {
-        if (scriptSrc.startsWith('./assets/js/events.js')) {
-          return './assets';
-        } else if (scriptSrc.startsWith('../')) {
-          const assetsPath = scriptSrc.replace(/\/js\/events\.js$/, '').replace(/\/events\.js$/, '');
-          return assetsPath || './assets';
-        }
-      }
-    }
-    
     const path = window.location.pathname;
     if (path === '/' || (path.includes('index.html') && !path.includes('/pages/'))) {
       return './assets';
@@ -62,7 +57,7 @@ function getAssetsPath() {
 
 // イベントデータを読み込んで表示
 function loadEvents() {
-  const assetsPath = getAssetsPath();
+  const assetsPath = getAssetsPathForEvents();
   
   try {
     const events = eventsData;
