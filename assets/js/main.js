@@ -132,13 +132,87 @@ function normalizePath(basePath, path) {
   return basePath + path;
 }
 
+// 現在のページを判定する関数
+function getCurrentPage() {
+  const pathname = window.location.pathname;
+  const siteRoot = getSiteRoot();
+  
+  // サイトルートを除いたパスを取得
+  let relativePath = pathname;
+  if (siteRoot && pathname.startsWith(siteRoot)) {
+    relativePath = pathname.slice(siteRoot.length);
+  }
+  
+  // パスを正規化
+  if (!relativePath.startsWith('/')) {
+    relativePath = '/' + relativePath;
+  }
+  if (relativePath.endsWith('/')) {
+    relativePath = relativePath.slice(0, -1);
+  }
+  
+  // ルートページ（/ または /index.html）
+  if (relativePath === '/' || relativePath === '/index.html' || 
+      (relativePath.endsWith('/index.html') && !relativePath.includes('/pages/'))) {
+    return 'top';
+  }
+  
+  // 各ページの判定
+  if (relativePath.includes('/pages/about/')) {
+    return 'about';
+  }
+  if (relativePath.includes('/pages/seminars/')) {
+    return 'seminars';
+  }
+  if (relativePath.includes('/pages/activities/')) {
+    return 'activities';
+  }
+  if (relativePath.includes('/pages/events/')) {
+    return 'events';
+  }
+  if (relativePath.includes('/pages/join/')) {
+    return 'join';
+  }
+  if (relativePath.includes('/pages/faq/')) {
+    return 'faq';
+  }
+  
+  return 'top'; // デフォルト
+}
+
 // 共通のヘッダーHTML
 function getHeaderHtml() {
   const assetsPath = getAssetsPath();
   const basePath = getBasePath();
   const siteRoot = getSiteRoot();
+  const currentPage = getCurrentPage();
+  
   // ルートリンクを生成（リポジトリ名を考慮）
   const rootLink = siteRoot ? siteRoot + '/index.html' : (basePath === '.' ? 'index.html' : normalizePath(basePath, '/index.html'));
+  
+  // 各リンクのURLとアクティブ状態
+  const links = [
+    { url: rootLink, text: 'Top', page: 'top', mobileText: 'TOP' },
+    { url: normalizePath(basePath, '/pages/about/index.html'), text: 'About Us', page: 'about', mobileText: 'About Us' },
+    { url: normalizePath(basePath, '/pages/seminars/index.html'), text: 'ゼミについて', page: 'seminars', mobileText: 'ゼミについて' },
+    { url: normalizePath(basePath, '/pages/activities/index.html'), text: '活動紹介', page: 'activities', mobileText: '活動紹介' },
+    { url: normalizePath(basePath, '/pages/events/index.html'), text: 'イベント一覧', page: 'events', mobileText: 'イベント一覧' },
+    { url: normalizePath(basePath, '/pages/join/index.html'), text: '新歓・入会', page: 'join', mobileText: '新歓・入会' },
+    { url: normalizePath(basePath, '/pages/faq/index.html'), text: 'お問い合わせ・FAQ', page: 'faq', mobileText: 'FAQ・お問い合わせ' }
+  ];
+  
+  // モバイルメニューのHTMLを生成
+  const mobileMenuItems = links.map(link => {
+    const activeClass = currentPage === link.page ? ' class="active"' : '';
+    return `<li><a href="${link.url}"${activeClass}>${link.mobileText}</a></li>`;
+  }).join('\n          ');
+  
+  // PCメニューのHTMLを生成
+  const pcMenuItems = links.map(link => {
+    const activeClass = currentPage === link.page ? ' active' : '';
+    return `<a class="text-link${activeClass}" href="${link.url}">${link.text}</a>`;
+  }).join('\n      ');
+  
   return `
   <header class="page-header">
     <a class="will-logo" href="${rootLink}">
@@ -152,25 +226,13 @@ function getHeaderHtml() {
       </div>
       <nav class="sp-nav">
         <ul>
-          <li><a href="${rootLink}">TOP</a></li>
-          <li><a href="${normalizePath(basePath, '/pages/about/index.html')}">About Us</a></li>
-          <li><a href="${normalizePath(basePath, '/pages/seminars/index.html')}">ゼミについて</a></li>
-          <li><a href="${normalizePath(basePath, '/pages/activities/index.html')}">活動紹介</a></li>
-          <li><a href="${normalizePath(basePath, '/pages/events/index.html')}">イベント一覧</a></li>
-          <li><a href="${normalizePath(basePath, '/pages/join/index.html')}">新歓・入会</a></li>
-          <li><a href="${normalizePath(basePath, '/pages/faq/index.html')}">FAQ・お問い合わせ</a></li>
+          ${mobileMenuItems}
         </ul>
       </nav>
       <div class="black-bg" id="js-black-bg"></div>
     </div>
     <div class="link-box">
-      <a class="text-link" href="${rootLink}">Top</a>
-      <a class="text-link" href="${normalizePath(basePath, '/pages/about/index.html')}">About Us</a>
-      <a class="text-link" href="${normalizePath(basePath, '/pages/seminars/index.html')}">ゼミについて</a>
-      <a class="text-link" href="${normalizePath(basePath, '/pages/activities/index.html')}">活動紹介</a>
-      <a class="text-link" href="${normalizePath(basePath, '/pages/events/index.html')}">イベント一覧</a>
-      <a class="text-link" href="${normalizePath(basePath, '/pages/join/index.html')}">新歓・入会</a>
-      <a class="text-link" href="${normalizePath(basePath, '/pages/faq/index.html')}">お問い合わせ・FAQ</a>
+      ${pcMenuItems}
     </div>
   </header>
   `;

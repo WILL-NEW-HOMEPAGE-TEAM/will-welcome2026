@@ -505,11 +505,20 @@
   }
 
   .about-will-section {
-    padding: 0 40px;
+    padding: 60px 40px;
+  }
+
+  .will-title-cover {
+    margin-bottom: 32px;
+  }
+
+  .will-title-cover .section-title {
+    margin-bottom: 0;
   }
 
   .about-will-description {
     font-size: var(--font_24);
+    letter-spacing: 2px;
   }
 
   .about-seminar-description {

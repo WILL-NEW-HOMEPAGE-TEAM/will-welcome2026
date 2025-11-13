@@ -103,12 +103,40 @@ body {
   font-weight: 400;
   line-height: normal;
   text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background 0.3s, color 0.3s;
 }
 
 .text-link:hover {
   background: var(--shinonome);
-  transition: 0.3s;
   color: var(--ivory);
+}
+
+.text-link.active {
+  color: var(--blue_Kashmir);
+  font-weight: 700;
+  position: relative;
+}
+
+.text-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 16px;
+  right: 16px;
+  height: 3px;
+  background: var(--blue_Kashmir);
+  border-radius: 2px;
+}
+
+.text-link.active:hover {
+  background: var(--shinonome);
+  color: var(--ivory);
+}
+
+.text-link.active:hover::after {
+  background: var(--ivory);
 }
 
 /* 共通ボタンスタイル */
@@ -552,6 +580,24 @@ body {
     font-size: var(--font_32);
     text-decoration: none;
     cursor: pointer;
+  }
+
+  .sp-nav a.active {
+    color: var(--ivory);
+    font-weight: 700;
+    position: relative;
+    padding-left: 20px;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 8px;
+    text-decoration-color: var(--ivory);
+  }
+
+  .sp-nav a.active::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    font-size: var(--font_20);
   }
 
   /*ハンバーガーがクリックされたら右からスライド*/
