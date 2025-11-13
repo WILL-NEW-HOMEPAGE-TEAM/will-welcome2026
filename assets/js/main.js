@@ -1,65 +1,110 @@
+// ベースパスを取得する関数（ローカル開発とGitHub Pagesの両方に対応）
+function getBasePath() {
+  // ローカル開発環境（file://プロトコル）の場合
+  if (window.location.protocol === 'file:') {
+    const path = window.location.pathname;
+    // ルートのindex.htmlの場合
+    if (path === '/' || (path.includes('index.html') && !path.includes('/pages/'))) {
+      return '.';
+    }
+    // pagesディレクトリ内の場合
+    if (path.includes('/pages/')) {
+      const pathAfterPages = path.split('/pages/')[1];
+      if (pathAfterPages) {
+        const dirs = pathAfterPages.split('/').filter(p => p && !p.endsWith('.html'));
+        const depth = dirs.length + 1;
+        return '../'.repeat(depth).slice(0, -1); // 最後のスラッシュを削除
+      }
+      return '../..';
+    }
+    return '.';
+  }
+  // HTTP/HTTPSの場合（GitHub Pages含む）
+  // GitHub Pagesのリポジトリ名を考慮（通常は空文字列、サブディレクトリの場合は設定が必要）
+  return '';
+}
+
+// アセットパスを取得する関数
+function getAssetsPath() {
+  const basePath = getBasePath();
+  if (window.location.protocol === 'file:') {
+    return basePath + '/assets';
+  }
+  return basePath + '/assets';
+}
+
 // 共通のヘッダーHTML
-const headerHtml = `<header class="page-header">
-  <a class="will-logo" href="/index.html"
-    ><img src="/assets/images/logo.svg" alt="TOPページへ戻る"
-  /></a>
-  <div id="nav-wrapper" class="nav-wrapper">
-    <div class="hamburger" id="js-hamburger">
-      <span class="hamburger__line hamburger__line--1"></span>
-      <span class="hamburger__line hamburger__line--2"></span>
-      <span class="hamburger__line hamburger__line--3"></span>
+function getHeaderHtml() {
+  const assetsPath = getAssetsPath();
+  const basePath = getBasePath();
+  return `
+  <header class="page-header">
+    <a class="will-logo" href="${basePath}/index.html">
+      <img src="${assetsPath}/images/logo.svg" alt="TOPページへ戻る"/>
+    </a>
+    <div id="nav-wrapper" class="nav-wrapper">
+      <div class="hamburger" id="js-hamburger">
+        <span class="hamburger__line hamburger__line--1"></span>
+        <span class="hamburger__line hamburger__line--2"></span>
+        <span class="hamburger__line hamburger__line--3"></span>
+      </div>
+      <nav class="sp-nav">
+        <ul>
+          <li><a href="${basePath}/index.html">TOP</a></li>
+          <li><a href="${basePath}/pages/about/index.html">About Us</a></li>
+          <li><a href="${basePath}/pages/seminars/index.html">ゼミについて</a></li>
+          <li><a href="${basePath}/pages/activities/index.html">活動紹介</a></li>
+          <li><a href="${basePath}/pages/events/event-1st.html">イベント一覧</a></li>
+          <li><a href="${basePath}/pages/join/index.html">新歓・入会</a></li>
+          <li><a href="${basePath}/pages/faq/index.html">FAQ・お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <div class="black-bg" id="js-black-bg"></div>
     </div>
-    <nav class="sp-nav">
-      <ul>
-        <li><a href="/index.html">TOP</a></li>
-        <li><a href="/pages/about/">About Us</a></li>
-        <li><a href="/pages/seminars/">ゼミについて</a></li>
-        <li><a href="/pages/activities/">活動紹介</a></li>
-        <li><a href="/pages/events/event-1st.html">イベント一覧</a></li>
-        <li><a href="/pages/join/">新歓・入会</a></li>
-        <li><a href="/pages/faq/">FAQ・お問い合わせ</a></li>
-      </ul>
-    </nav>
-    <div class="black-bg" id="js-black-bg"></div>
-  </div>
-  <div class="link-box">
-    <a class="text-link" href="/index.html">Top</a>
-    <a class="text-link" href="/pages/about/">About Us</a>
-    <a class="text-link" href="/pages/seminars/">ゼミについて</a>
-    <a class="text-link" href="/pages/activities/">活動紹介</a>
-    <a class="text-link" href="/pages/events/event-1st.html">イベント一覧</a>
-    <a class="text-link" href="/pages/join/">新歓・入会</a>
-    <a class="text-link" href="/pages/faq/">FAQ・お問い合わせ</a>
-  </div>
-</header>`;
+    <div class="link-box">
+      <a class="text-link" href="${basePath}/index.html">Top</a>
+      <a class="text-link" href="${basePath}/pages/about/index.html">About Us</a>
+      <a class="text-link" href="${basePath}/pages/seminars/index.html">ゼミについて</a>
+      <a class="text-link" href="${basePath}/pages/activities/index.html">活動紹介</a>
+      <a class="text-link" href="${basePath}/pages/events/event-1st.html">イベント一覧</a>
+      <a class="text-link" href="${basePath}/pages/join/index.html">新歓・入会</a>
+      <a class="text-link" href="${basePath}/pages/faq/index.html">お問い合わせ・FAQ</a>
+    </div>
+  </header>
+  `;
+}
 
 // 共通のフッターHTML
-const footerHtml = `<footer class="footer">
-  <div class="footer-top">
-    <div class="footer-sm-logo">
-      <a
-        class="x-logo"
-        href="https://x.com/pgwu_info?prefetchTimestamp=1739769263751&mx=2"
-        aria-label="x-logo"
-        ><img src="/assets/images/x-logo.webp" alt=""
-      /></a>
-      <a
-        class="instagram-logo"
-        href="https://www.instagram.com/pgwu_info/"
-        aria-label="instagram-logo"
-        ><img src="/assets/images/instagram.svg" alt=""
-      /></a>
+function getFooterHtml() {
+  const assetsPath = getAssetsPath();
+  return `
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-sm-logo">
+        <a
+          class="x-logo"
+          href="https://x.com/pgwu_info?prefetchTimestamp=1739769263751&mx=2"
+          aria-label="x-logo"
+          ><img src="${assetsPath}/images/x-logo.webp" alt=""
+        /></a>
+        <a
+          class="instagram-logo"
+          href="https://www.instagram.com/pgwu_info/"
+          aria-label="instagram-logo"
+          ><img src="${assetsPath}/images/instagram.svg" alt=""
+        /></a>
+      </div>
+      <div class="footer-logo">
+        <img src="${assetsPath}/images/footer-logo.svg" alt="" />
+        <img src="${assetsPath}/images/footer-full-logo.webp" alt="" />
+      </div>
     </div>
-    <div class="footer-logo">
-      <img src="/assets/images/logo.svg" alt="" />
-      <img src="/assets/images/footer-full-logo.webp" alt="" />
+    <div class="footer-copyright">
+      <img src="${assetsPath}/images/copyright.svg" alt="" />
+      <p class="copyright-text">Waseda IT Leader Lab 2025</p>
     </div>
-  </div>
-  <div class="footer-copyright">
-    <img src="/assets/images/copyright.svg" alt="" />
-    <p class="copyright-text">Waseda IT Leader Lab 2025</p>
-  </div>
-</footer>`;
+  </footer>`;
+}
 
 // 共通のヘッダー・フッターを読み込む関数
 function loadCommonComponents() {
@@ -67,13 +112,13 @@ function loadCommonComponents() {
     // ヘッダーの読み込み
     const headerContainer = document.getElementById('header-container');
     if (headerContainer) {
-      headerContainer.innerHTML = headerHtml;
+      headerContainer.innerHTML = getHeaderHtml();
     }
 
     // フッターの読み込み
     const footerContainer = document.getElementById('footer-container');
     if (footerContainer) {
-      footerContainer.innerHTML = footerHtml;
+      footerContainer.innerHTML = getFooterHtml();
     }
 
     // ヘッダー・フッター読み込み完了後にハンバーガーメニューを初期化
