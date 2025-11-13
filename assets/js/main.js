@@ -1,45 +1,74 @@
 // ベースパスを取得する関数（ローカル開発とGitHub Pagesの両方に対応）
 function getBasePath() {
-  // ローカル開発環境（file://プロトコル）の場合
-  if (window.location.protocol === 'file:') {
-    const path = window.location.pathname;
-    // ルートのindex.htmlの場合
-    if (path === '/' || (path.includes('index.html') && !path.includes('/pages/'))) {
-      return '.';
-    }
-    // pagesディレクトリ内の場合
-    if (path.includes('/pages/')) {
-      const pathAfterPages = path.split('/pages/')[1];
-      if (pathAfterPages) {
-        const dirs = pathAfterPages.split('/').filter(p => p && !p.endsWith('.html'));
-        const depth = dirs.length + 1;
-        return '../'.repeat(depth).slice(0, -1); // 最後のスラッシュを削除
-      }
-      return '../..';
-    }
+  const pathname = window.location.pathname;
+  
+  // パスを正規化（先頭と末尾のスラッシュを処理）
+  let normalizedPath = pathname;
+  if (normalizedPath.endsWith('/')) {
+    normalizedPath = normalizedPath.slice(0, -1);
+  }
+  if (!normalizedPath.startsWith('/')) {
+    normalizedPath = '/' + normalizedPath;
+  }
+  
+  // ルートページ（/ または /index.html）の場合
+  if (normalizedPath === '/' || normalizedPath === '/index.html' || 
+      (normalizedPath.endsWith('/index.html') && !normalizedPath.includes('/pages/'))) {
     return '.';
   }
-  // HTTP/HTTPSの場合（GitHub Pages含む）
-  // GitHub Pagesのリポジトリ名を考慮（通常は空文字列、サブディレクトリの場合は設定が必要）
-  return '';
+  
+  // pagesディレクトリ内の場合
+  if (normalizedPath.includes('/pages/')) {
+    // パスを分割
+    const parts = normalizedPath.split('/').filter(p => p);
+    
+    // pagesの位置を探す
+    const pagesIndex = parts.indexOf('pages');
+    if (pagesIndex === -1) {
+      return '.';
+    }
+    
+    // pages/以降のディレクトリ数を計算
+    // 例: /pages/about/index.html → parts = ['pages', 'about', 'index.html']
+    // pagesの後にあるディレクトリ数（HTMLファイルを除く）
+    const afterPages = parts.slice(pagesIndex + 1);
+    const dirCount = afterPages.filter(p => !p.endsWith('.html')).length;
+    
+    // ルートに戻るには、pagesディレクトリ分 + その後のディレクトリ分の..が必要
+    // 例: /pages/about/index.html → ../../ (pages + about = 2階層上)
+    const depth = dirCount + 1; // +1はpagesディレクトリ分
+    return '../'.repeat(depth).slice(0, -1); // 最後のスラッシュを削除
+  }
+  
+  // その他の場合（ルートページとして扱う）
+  return '.';
 }
 
 // アセットパスを取得する関数
 function getAssetsPath() {
   const basePath = getBasePath();
-  if (window.location.protocol === 'file:') {
-    return basePath + '/assets';
+  if (basePath === '.') {
+    return './assets';
   }
   return basePath + '/assets';
+}
+
+// パスを正規化する関数（basePathが.の場合は./を省略）
+function normalizePath(basePath, path) {
+  if (basePath === '.') {
+    return path.startsWith('/') ? path.slice(1) : path;
+  }
+  return basePath + path;
 }
 
 // 共通のヘッダーHTML
 function getHeaderHtml() {
   const assetsPath = getAssetsPath();
   const basePath = getBasePath();
+  const rootLink = basePath === '.' ? 'index.html' : normalizePath(basePath, '/index.html');
   return `
   <header class="page-header">
-    <a class="will-logo" href="${basePath}/index.html">
+    <a class="will-logo" href="${rootLink}">
       <img src="${assetsPath}/images/logo.svg" alt="TOPページへ戻る"/>
     </a>
     <div id="nav-wrapper" class="nav-wrapper">
@@ -50,25 +79,25 @@ function getHeaderHtml() {
       </div>
       <nav class="sp-nav">
         <ul>
-          <li><a href="${basePath}/index.html">TOP</a></li>
-          <li><a href="${basePath}/pages/about/index.html">About Us</a></li>
-          <li><a href="${basePath}/pages/seminars/index.html">ゼミについて</a></li>
-          <li><a href="${basePath}/pages/activities/index.html">活動紹介</a></li>
-          <li><a href="${basePath}/pages/events/event-1st.html">イベント一覧</a></li>
-          <li><a href="${basePath}/pages/join/index.html">新歓・入会</a></li>
-          <li><a href="${basePath}/pages/faq/index.html">FAQ・お問い合わせ</a></li>
+          <li><a href="${rootLink}">TOP</a></li>
+          <li><a href="${normalizePath(basePath, '/pages/about/index.html')}">About Us</a></li>
+          <li><a href="${normalizePath(basePath, '/pages/seminars/index.html')}">ゼミについて</a></li>
+          <li><a href="${normalizePath(basePath, '/pages/activities/index.html')}">活動紹介</a></li>
+          <li><a href="${normalizePath(basePath, '/pages/events/event-1st.html')}">イベント一覧</a></li>
+          <li><a href="${normalizePath(basePath, '/pages/join/index.html')}">新歓・入会</a></li>
+          <li><a href="${normalizePath(basePath, '/pages/faq/index.html')}">FAQ・お問い合わせ</a></li>
         </ul>
       </nav>
       <div class="black-bg" id="js-black-bg"></div>
     </div>
     <div class="link-box">
-      <a class="text-link" href="${basePath}/index.html">Top</a>
-      <a class="text-link" href="${basePath}/pages/about/index.html">About Us</a>
-      <a class="text-link" href="${basePath}/pages/seminars/index.html">ゼミについて</a>
-      <a class="text-link" href="${basePath}/pages/activities/index.html">活動紹介</a>
-      <a class="text-link" href="${basePath}/pages/events/event-1st.html">イベント一覧</a>
-      <a class="text-link" href="${basePath}/pages/join/index.html">新歓・入会</a>
-      <a class="text-link" href="${basePath}/pages/faq/index.html">お問い合わせ・FAQ</a>
+      <a class="text-link" href="${rootLink}">Top</a>
+      <a class="text-link" href="${normalizePath(basePath, '/pages/about/index.html')}">About Us</a>
+      <a class="text-link" href="${normalizePath(basePath, '/pages/seminars/index.html')}">ゼミについて</a>
+      <a class="text-link" href="${normalizePath(basePath, '/pages/activities/index.html')}">活動紹介</a>
+      <a class="text-link" href="${normalizePath(basePath, '/pages/events/event-1st.html')}">イベント一覧</a>
+      <a class="text-link" href="${normalizePath(basePath, '/pages/join/index.html')}">新歓・入会</a>
+      <a class="text-link" href="${normalizePath(basePath, '/pages/faq/index.html')}">お問い合わせ・FAQ</a>
     </div>
   </header>
   `;
