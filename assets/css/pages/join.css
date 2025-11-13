@@ -242,6 +242,10 @@
   position: relative;
 }
 
+.event-section .section-title {
+  color: var(--ivory);
+}
+
 .event-entire-title {
   color: var(--ivory);
   text-align: center;
