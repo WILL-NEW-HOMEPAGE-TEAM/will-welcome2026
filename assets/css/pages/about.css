@@ -1,5 +1,36 @@
 /* CSS変数と基本スタイルは共通CSSで定義 */
 
+/* セクションタイトルの統一スタイル */
+.section-title {
+  color: var(--black);
+  text-align: center;
+  font-family: var(--noto);
+  font-size: var(--font_48);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 48px;
+}
+
+/* セクションタイトル内のspan（補足情報など） */
+.section-title span {
+  font-size: var(--font_24);
+  font-weight: 400;
+  color: var(--gray);
+}
+
+/* 後方互換性のためcontainer-titleも保持 */
+.container-title {
+  color: var(--black);
+  text-align: center;
+  font-family: var(--noto);
+  font-size: var(--font_48);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 48px;
+}
+
 .about-us-container {
   display: flex;
   width: 100%;
@@ -9,7 +40,6 @@
   align-self: stretch;
   gap: 80px;
   background-color: var(--ivory);
-  margin-bottom: 160px;
 }
 
 /* ヘッダー関連スタイルは共通CSSで定義 */
@@ -19,7 +49,7 @@
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  width: 1134px;
+  width: 90%;
   flex-direction: column;
   gap: 140px;
 }
@@ -33,29 +63,19 @@
   height: auto;
 }
 
-.container-title {
-  color: #232323;
-  text-align: center;
-  font-family: "Noto Sans JP";
-  font-size: var(--font_48);
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  margin-bottom: 48px;
-}
-
 .about-will-text {
   align-self: stretch;
-  color: var(--gray, #535353);
+  color: var(--gray);
   text-align: center;
   font-family: var(--noto);
-  font-size: var(--font_36);
+  font-size: var(--font_28);
   font-style: normal;
   font-weight: 400;
-  line-height: 129.945%; /* = 46.78px */
+  line-height: 129.945%; /* 46.78px */
   letter-spacing: 3.24px;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin: 0;
 }
 
 .vision-container,
@@ -106,7 +126,8 @@
   flex-direction: column;
   align-items: center;
   width: 422px;
-  height: 326px;
+  min-height: 326px;
+  height: auto;
 }
 
 .chart-title {
@@ -123,7 +144,8 @@
   justify-content: flex-start;
   gap: 28px;
   width: 100%;
-  height: 100%;
+  height: auto;
+  min-height: 180px;
 }
 
 canvas {
@@ -140,6 +162,9 @@ canvas {
   margin: 0;
   padding: 0;
   color: var(--gray);
+  max-height: 266px;
+  overflow-y: auto;
+  padding-right: 8px;
 }
 
 .chart-legend li {
@@ -239,7 +264,7 @@ canvas {
 .relationship-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .relationship-text {
@@ -253,7 +278,7 @@ canvas {
   letter-spacing: 3.24px;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .relationship-image-container img {
@@ -301,8 +326,10 @@ canvas {
     font-size: var(--font_24);
   }
 
+  .section-title,
   .container-title {
     font-size: var(--font_32);
+    margin-bottom: 32px;
   }
 
   .vision-text,
@@ -317,7 +344,6 @@ canvas {
 
   .relationship-container {
     position: relative;
-    margin-bottom: 50px;
   }
 
   .link-playground-hp-container {
@@ -337,12 +363,56 @@ canvas {
 }
 
 /* ───────────────────────────
-     ① Smart phone  (0 – 639 px)
-     ─────────────────────────── */
-@media (max-width: 639px) {
-  .about-us-container {
-    margin-bottom: 40px;
+  ② Tablet  (640 – 1023 px)
+  ─────────────────────────── */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .about-us-section {
+    width: 90%;
+    gap: 120px;
   }
+
+  .section-title,
+  .container-title {
+    font-size: var(--font_32);
+  }
+
+  .about-will-text,
+  .relationship-text {
+    font-size: var(--font_24);
+  }
+
+  .vision-text-box,
+  .goal-text-box {
+    padding: 28px 40px;
+  }
+  .vision-text,
+  .goal-text {
+    font-size: var(--font_24);
+  }
+
+  .chart-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 64px;
+  }
+  .chart-box {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+  }
+  canvas {
+    width: 220px !important;
+    height: 220px !important;
+  }
+}
+
+
+/* ───────────────────────────
+① Smart phone  (0 – 639 px)
+─────────────────────────── */
+@media (max-width: 639px) {
+/* .about-us-container {
+  margin-bottom: 40px;
+} */
 
   /* 共通レイアウト ------------------------------- */
   .about-us-section {
@@ -351,16 +421,8 @@ canvas {
     gap: 80px;
   }
 
-  .head-image-container img {
-    height: 240px;
-  }
-  .head-letter {
-    font-size: var(--font_40);
-    right: 16px;
-    bottom: 16px;
-  }
-
   /* タイトル & テキスト --------------------------- */
+  .section-title,
   .container-title {
     font-size: var(--font_28);
     margin-bottom: 32px;
@@ -383,11 +445,12 @@ canvas {
   /* グラフ系 ------------------------------------- */
   .chart-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 24px;
   }
   .chart-box {
     width: 100%;
     height: auto;
+    min-height: auto;
   }
   canvas {
     width: 180px !important;
@@ -395,6 +458,8 @@ canvas {
   }
   .chart-legend {
     font-size: var(--font_14);
+    max-height: 180px;
+    overflow-y: auto;
   }
 
   /* 関連リンク・画像 ------------------------------ */
@@ -408,54 +473,5 @@ canvas {
   .link-playground-hp-square {
     font-size: var(--font_14);
     padding: 12px 24px;
-  }
-}
-
-/* ───────────────────────────
-       ② Tablet  (640 – 1023 px)
-       ─────────────────────────── */
-@media (min-width: 640px) and (max-width: 1023px) {
-  .about-us-section {
-    width: 90%;
-    gap: 120px;
-  }
-
-  .head-image-container img {
-    height: 320px;
-  }
-  .head-letter {
-    font-size: var(--font_48);
-    right: 24px;
-    bottom: 24px;
-  }
-
-  .container-title {
-    font-size: var(--font_32);
-  }
-  .about-will-text,
-  .relationship-text {
-    font-size: var(--font_24);
-  }
-
-  .vision-text-box,
-  .goal-text-box {
-    padding: 28px 40px;
-  }
-  .vision-text,
-  .goal-text {
-    font-size: var(--font_24);
-  }
-
-  .chart-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 64px;
-  }
-  .chart-box {
-    width: 100%;
-    height: auto;
-  }
-  canvas {
-    width: 220px !important;
-    height: 220px !important;
   }
 }

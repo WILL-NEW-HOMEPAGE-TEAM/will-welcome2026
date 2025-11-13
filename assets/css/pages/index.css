@@ -1,112 +1,36 @@
-:root {
-  --shinonome: linear-gradient(91deg, #6f5878 0.02%, #4f648d);
-  --blue_Kashmir: #52648c;
-  --gray: #535353;
-  --ivory: #fffcf7;
-  --purple_Kimberly: #6b5b7d;
-  --gray-50: rgba(83, 83, 83, 0.5);
-  --black: #232323;
-  --white: #ffffff;
-  --ivory-50: rgba(255, 252, 247, 0.5);
+/* CSS変数は共通CSSで定義 */
 
-  --font_70: 70px;
-  --font_60: 60px;
-  --font_48: 48px;
-  --font_40: 40px;
-  --font_36: 36px;
-  --font_32: 32px;
-  --font_28: 28px;
-  --font_24: 24px;
-  --font_22: 22px;
-  --font_20: 20px;
-  --font_18: 18px;
-  --font_16: 16px;
-  --font_14: 14px;
-  --font_12: 12px;
-
-  --noto: "Noto Sans JP", sans-serif;
-  --anton: "Anton", serif;
-  --ubuntu: "Ubuntu", serif;
-  --jomolhari: "Jomolhari", serif;
-  --times-new-roman: "Tinos", serif;
-  --inter: "Inter", sans-serif;
-  --esteban: "Esteban", serif;
-}
-
-.join-flow-container {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-}
-
-.page-header {
-  display: flex;
-  padding: 24px 32px;
-  justify-content: space-between;
-}
-
-.will-logo {
-  flex-shrink: 0;
-}
-
-.link-box {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
-.nav-wrapper {
-  display: none;
-}
-
-.text-link {
-  color: var(--gray);
-  font-size: var(--font_16);
-  font-family: var(--noto);
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-decoration: none;
-}
-
-.text-link:hover {
-  background: var(--shinonome);
-  transition: 0.3s;
-  color: var(--ivory);
-}
-
-/* ヘッダー画像スタイルは共通CSSで統一 */
-
-.about-will-section {
-  display: flex;
-  padding: 100px;
-  flex-direction: column;
-  align-items: center;
-  gap: 48px;
-}
-
-.will-title-cover {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
-.will-title {
-  color: var(--gray);
+/* セクションタイトルの統一スタイル */
+.section-title {
+  color: var(--black);
   text-align: center;
   font-family: var(--noto);
   font-size: var(--font_48);
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  margin-bottom: 48px;
 }
 
-.about-will-cover {
+/* 最新情報セクションのタイトルは背景色に合わせて色を変更 */
+.latest-information-section .section-title {
+  color: var(--ivory);
+}
+
+.about-will-section {
   display: flex;
+  padding: 100px;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
+  align-items: center;
+}
+
+.will-title-cover {
+  width: 100%;
+  margin-bottom: 48px;
+}
+
+.will-title-cover .section-title {
+  margin-bottom: 0;
 }
 
 .about-will-description {
@@ -119,25 +43,20 @@
   line-height: 129.945%; /* 46.78px */
   letter-spacing: 3.24px;
   align-self: stretch;
+  margin: 0;
 }
 
 .latest-information-section {
   display: flex;
-  padding: 36px 0px 36px 0px;
+  padding: 80px 0px 60px 0px;
   flex-direction: column;
   align-items: center;
-  gap: 54px;
   background: var(--shinonome);
 }
 
-.latest-information-title {
-  color: var(--ivory);
-  text-align: center;
-  font-family: var(--noto);
-  font-size: var(--font_48);
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+.latest-information-section .section-title {
+  margin-top: 0;
+  margin-bottom: 48px;
 }
 
 .carousel-container {
@@ -207,58 +126,47 @@
 
 .activity-button {
   display: flex;
-  padding-right: 36px;
+  padding: 40px 100px 0 0;
   flex-direction: column;
   align-items: flex-end;
   gap: 10px;
   text-decoration: none;
   align-self: stretch;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .about-seminar-section {
   display: flex;
-  padding: 100px 100px 36px 100px;
+  padding: 100px 100px 60px 100px;
   flex-direction: column;
   align-items: flex-end;
-  gap: 54px;
-}
-
-.seminar-title {
-  color: var(--gray);
-  text-align: center;
-  font-family: var(--noto);
-  font-size: var(--font_48);
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  gap: 56px;
 }
 
 .about-seminar-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
   align-self: stretch;
 }
 
-.description-frame {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-  align-self: stretch;
+.about-seminar-content .section-title {
+  margin-top: 0;
+  margin-bottom: 48px;
 }
 
 .about-seminar-description {
   color: var(--gray);
   text-align: center;
   font-family: var(--noto);
-  font-size: var(--font_20);
+  font-size: var(--font_28);
   font-style: normal;
-  font-weight: 500;
-  line-height: 200%;
-  text-transform: capitalize;
+  font-weight: 400;
+  line-height: 129.945%; /* 46.78px */
+  letter-spacing: 3.24px;
   align-self: stretch;
+  margin: 0;
 }
 
 .seminar-detail-button {
@@ -267,12 +175,14 @@
   align-items: flex-start;
   gap: 10px;
   text-decoration: none;
+  margin-top: 40px;
 }
 
+/* 統一されたボタンスタイル */
 .button-content {
   display: flex;
   padding: 16px 20px;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: flex-start;
   gap: 10px;
   border-radius: 12px;
@@ -282,8 +192,8 @@
 
 .button-content-gray {
   display: flex;
-  padding: 0px 10px;
-  justify-content: flex-end;
+  padding: 16px 20px;
+  justify-content: flex-start;
   align-items: flex-start;
   gap: 10px;
   border-radius: 12px;
@@ -315,23 +225,14 @@
 
 .join-flow-and-condition-section {
   display: flex;
+  padding: 100px 0px 60px 0px;
   flex-direction: column;
   align-items: center;
-  gap: 62px;
 }
 
-.join-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  color: var(--gray);
-  text-align: center;
-  font-family: var(--noto);
-  font-size: var(--font_48);
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+.join-flow-and-condition-section .section-title {
+  margin-top: 0;
+  margin-bottom: 48px;
 }
 
 .join-flow-and-condition-content {
@@ -339,9 +240,19 @@
   flex-direction: column;
   align-items: center;
   gap: 42px;
+  margin-bottom: 56px;
 }
 
 .join-flow-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 54px;
+  padding-left: 46px;
+  border-left: 1px solid var(--gray);
+}
+
+.join-flow {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -441,19 +352,36 @@
 
 .join-condition-block {
   width: 350px;
-  height: 150px;
+  height: 180px;
   display: flex;
   padding: 24px 36px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
+  gap: 0;
   border-radius: 12px;
   background: var(--shinonome);
 }
 
+.join-condition-block > * {
+  margin-bottom: 24px;
+}
+
+.join-condition-block > *:last-child {
+  margin-bottom: 0;
+}
+
+/* 入会条件のボックス内で、condition-detailとdetail-miniの間隔を狭くする */
+.join-condition-block .condition-detail {
+  margin-bottom: 4px;
+}
+
+.join-condition-block .detail-mini {
+  margin-bottom: 0;
+}
+
 .condition-title {
   font-family: var(--noto);
-  font-size: var(--font_32);
+  font-size: var(--font_24);
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -464,7 +392,7 @@
 
 .condition-detail {
   font-family: var(--noto);
-  font-size: var(--font_24);
+  font-size: var(--font_20);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -475,84 +403,14 @@
 }
 
 .detail-mini {
+  font-family: var(--noto);
   font-size: var(--font_16);
-  color: var(--ivory);
-}
-
-.footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: var(--ivory);
-}
-
-.footer-top {
-  display: flex;
-  padding: 90px 0px 100px 0px;
-  justify-content: center;
-  align-items: center;
-  gap: 80px;
-  align-self: stretch;
-}
-
-.footer-sm-logo {
-  display: flex;
-  align-items: center;
-  gap: 43px;
-}
-
-.x-logo {
-  display: flex;
-  padding: 10px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
-.instagram-logo {
-  display: flex;
-  padding: 12px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
-.instagram-logo img {
-  width: 85px;
-  height: 79px;
-}
-
-.footer-logo {
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  display: flex;
-}
-
-.footer-copyright {
-  display: flex;
-  padding: 8px 0px;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  align-self: stretch;
-}
-
-.footer-copyright img {
-  width: 32px;
-  height: 32px;
-}
-
-.copyright-text {
-  color: var(--gray);
-  font-family: var(--times-new-roman);
-  font-size: var(--font_32);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  letter-spacing: 0.72px;
+  color: var(--ivory);
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 @media (max-width: 900px) {
@@ -563,7 +421,7 @@
   /* 
   hamburger(ハンバーガーアイコン)
   =================================== */
-  .hamburger {
+  /* .hamburger {
     position: absolute;
     right: 30px;
     top: 33px;
@@ -607,46 +465,8 @@
   .open .hamburger__line--3 {
     transform: rotate(45deg);
     top: 11px;
-  }
+  } */
 
-  /* 
-  sp-nav(ナビ)
-  =================================== */
-  .sp-nav {
-    position: fixed;
-    right: -100%; /*ハンバーガーがクリックされる前はWindow右側に隠す*/
-    top: 0;
-    width: 70%; /* 出てくるスライドメニューの幅 */
-    height: 100vh;
-    background-color: var(--blue_Kashmir);
-    transition: all 0.5s;
-    z-index: 200;
-    overflow-y: auto; /* メニューが多くなったらスクロールできるように */
-  }
-
-  .sp-nav ul {
-    padding-top: 100px;
-    list-style: none;
-    text-align: center;
-    padding-left: 0;
-  }
-
-  .sp-nav ul li {
-    padding: 10px 0px;
-  }
-
-  .sp-nav a {
-    color: var(--ivory);
-    font-family: var(--noto);
-    font-size: var(--font_32);
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  /*ハンバーガーがクリックされたら右からスライド*/
-  .open .sp-nav {
-    right: 0;
-  }
   /* 
   black-bg(ハンバーガーメニュー解除用bg)
   =================================== */
@@ -685,16 +505,19 @@
   }
 
   .about-will-section {
-    padding: 100px 40px;
+    padding: 0 40px;
   }
 
   .about-will-description {
     font-size: var(--font_24);
   }
 
+  .about-seminar-description {
+    font-size: var(--font_24);
+  }
+
   .latest-information-section {
-    padding: 100px 0px;
-    gap: 40px;
+    padding: 60px 0px 40px 0px;
   }
 
   .carousel-container {
@@ -731,31 +554,27 @@
   }
 
   .about-seminar-section {
-    padding: 100px 40px 50px 40px;
+    padding: 60px 40px 40px 40px;
     align-items: center;
   }
 
-  .seminar-title {
+  .section-title {
     font-size: var(--font_32);
-    font-weight: 500;
+    font-weight: 700;
+    margin-bottom: 32px;
   }
 
   .join-flow-and-condition-section {
-    gap: 56px;
-    padding: 100px 0px;
-  }
-
-  .join-title {
-    gap: 0px;
-    font-size: var(--font_32);
-    font-weight: 500;
+    padding: 60px 0px 40px 0px;
   }
 
   .join-flow-and-condition-content {
-    gap: 0px;
+    gap: 56px;
+    margin-bottom: 40px;
   }
 
-  .join-flow-details {
+  .join-flow-details,
+  .join-flow {
     border-left: 5px solid var(--gray);
   }
 
@@ -773,60 +592,24 @@
 
   .join-condition-block {
     width: 300px;
-    height: 100px;
-    gap: 16px;
+    /* height: 100px; */
   }
 
   .condition-title {
     font-size: var(--font_24);
+    margin: 0 16px;
   }
 
   .condition-detail {
     font-size: var(--font_16);
+    white-space: normal;
   }
 
   .detail-mini {
-    font-size: var(--font_12);
+    font-size: var(--font_14);
   }
 
   .button-content {
     padding: 5px 20px;
-  }
-
-  .footer-top {
-    padding: 40px 0px 20px 0px;
-    flex-direction: column-reverse;
-    gap: 30px;
-  }
-
-  .footer-logo {
-    gap: 20px;
-  }
-
-  .footer-sm-logo {
-    gap: 18px;
-  }
-
-  .x-logo img {
-    width: 40px;
-    height: 40px;
-  }
-
-  .instagram-logo img {
-    width: 40px;
-    height: 40px;
-  }
-
-  .footer-copyright {
-    gap: 8px;
-  }
-
-  .footer-copyright img {
-    width: 24px;
-    height: 24px;
-  }
-
-  .copyright-text {
-    font-size: var(--font_18);
   }
 }

@@ -1,5 +1,38 @@
 /* join.css - 入会ページ固有のスタイル */
 
+/* セクションタイトルの統一スタイル */
+.section-title {
+  color: var(--black);
+  text-align: center;
+  font-family: var(--noto);
+  font-size: var(--font_48);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 48px;
+}
+
+/* 後方互換性のため旧クラス名も保持 */
+.join-title,
+.event-entire-title {
+  align-self: stretch;
+  text-align: center;
+  font-family: var(--noto);
+  font-size: var(--font_48);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 48px;
+}
+
+.join-title {
+  color: var(--shinonome);
+}
+
+.event-entire-title {
+  color: var(--black);
+}
+
 /* 入会条件セクション */
 .join-conditions-container {
   display: flex;
@@ -20,19 +53,36 @@
 
 .join-condition-block {
   width: 420px;
-  height: 80%;
+  height: 180px;
   display: flex;
   padding: 24px 36px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
+  gap: 0;
   border-radius: 12px;
   background: var(--shinonome);
 }
 
+.join-condition-block > * {
+  margin-bottom: 24px;
+}
+
+.join-condition-block > *:last-child {
+  margin-bottom: 0;
+}
+
+/* 入会条件のボックス内で、condition-detailとdetail-miniの間隔を狭くする */
+.join-condition-block .condition-detail {
+  margin-bottom: 4px;
+}
+
+.join-condition-block .detail-mini {
+  margin-bottom: 0;
+}
+
 .condition-title {
   font-family: var(--noto);
-  font-size: var(--font_32);
+  font-size: var(--font_24);
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -43,19 +93,24 @@
 
 .condition-detail {
   font-family: var(--noto);
-  font-size: var(--font_24);
+  font-size: var(--font_20);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   color: var(--ivory);
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .detail-mini {
+  font-family: var(--noto);
   font-size: var(--font_16);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
   color: var(--ivory);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* 入会フローセクション */
@@ -87,7 +142,7 @@
   border-left: solid 1px var(--gray);
 }
 
-.join-flow-details {
+.join-flow {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -391,8 +446,10 @@
     line-height: 150%;
   }
 
+  .section-title,
   .join-title {
     font-size: var(--font_36);
+    margin-bottom: 32px;
   }
 
   .join-flow-content {
@@ -402,7 +459,7 @@
     align-self: stretch;
   }
 
-  .join-flow-details {
+  .join-flow {
     flex: 1 0 0;
   }
 
@@ -422,8 +479,10 @@
     padding: 100px 42px 160px 42px;
   }
 
+  .section-title,
   .event-entire-title {
     font-size: var(--font_36);
+    margin-bottom: 32px;
   }
 
   .event-container {

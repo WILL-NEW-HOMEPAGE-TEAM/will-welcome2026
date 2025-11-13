@@ -1,5 +1,17 @@
 /* activities.css - 活動ページ固有のスタイル */
 
+/* セクションタイトルの統一スタイル */
+.section-title {
+  color: var(--black);
+  text-align: center;
+  font-family: var(--noto);
+  font-size: var(--font_48);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 48px;
+}
+
 /* 新着イベントセクション */
 .new-event-section {
   display: flex;
@@ -10,6 +22,7 @@
   background-color: var(--ivory);
 }
 
+/* 後方互換性のため旧クラス名も保持 */
 .new-event-title {
   text-align: center;
   font-family: var(--noto);
@@ -17,6 +30,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  margin-bottom: 48px;
   color: var(--shinonome);
 }
 
@@ -93,6 +107,43 @@
 }
 
 /* 年間スケジュールセクション */
+.yearly-schedule-section .section-title {
+  color: var(--ivory);
+}
+
+.yearly-schedule-title {
+  text-align: center;
+  font-family: var(--noto);
+  font-size: var(--font_48);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 48px;
+  color: var(--ivory);
+}
+
+.activity-title {
+  text-align: center;
+  font-family: var(--noto);
+  font-size: var(--font_48);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 48px;
+  color: var(--shinonome);
+}
+
+.PG-product-title {
+  text-align: center;
+  font-family: var(--noto);
+  font-size: var(--font_48);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 48px;
+  color: var(--black);
+}
+
 .yearly-schedule-section {
   display: flex;
   padding: 100px 35px 200px 35px;
@@ -287,14 +338,20 @@
   position: relative;
 }
 
+.PG-product-section .section-title {
+  color: var(--black);
+}
+
+/* 後方互換性のため旧クラス名も保持 */
 .PG-product-title {
-  color: var(--ivory);
   text-align: center;
   font-family: var(--noto);
   font-size: var(--font_48);
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  margin-bottom: 48px;
+  color: var(--black);
 }
 
 .PG-product-list {
@@ -380,8 +437,10 @@
     padding: 59px 42px;
   }
 
+  .section-title,
   .new-event-title {
     font-size: var(--font_36);
+    margin-bottom: 32px;
   }
 
   .new-event-list {
@@ -412,8 +471,10 @@
     gap: 56px;
   }
 
+  .yearly-schedule-section .section-title,
   .yearly-schedule-title {
     font-size: var(--font_36);
+    margin-bottom: 32px;
   }
 
   .yearly-events {
@@ -482,8 +543,10 @@
     opacity: 0.2;
   }
 
+  .section-title,
   .activity-title {
     font-size: var(--font_36);
+    margin-bottom: 32px;
   }
 
   .slide-wrapper {
@@ -525,8 +588,10 @@
     font-size: var(--font_20);
   }
 
+  .section-title,
   .PG-product-title {
     font-size: var(--font_36);
+    margin-bottom: 32px;
   }
 
   .PG-product-list {

@@ -1,5 +1,37 @@
 /* faq.css - FAQページ固有のスタイル */
 
+/* セクションタイトルの統一スタイル */
+.section-title {
+  color: var(--black);
+  text-align: center;
+  font-family: var(--noto);
+  font-size: var(--font_48);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 48px;
+}
+
+/* 後方互換性のため旧クラス名も保持 */
+.inquiry-title,
+.faq-content-title {
+  text-align: center;
+  font-family: var(--noto);
+  font-size: var(--font_48);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 48px;
+}
+
+.inquiry-title {
+  color: var(--shinonome);
+}
+
+.faq-content-title {
+  color: var(--black);
+}
+
 /* お問い合わせセクション */
 .inquiry-container {
   display: flex;
@@ -111,14 +143,10 @@
   background: var(--blue_Kashmir);
 }
 
+.faq-container .section-title,
 .faq-content-title {
   color: var(--ivory);
-  text-align: center;
-  font-family: var(--noto);
-  font-size: var(--font_48);
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  margin-bottom: 48px;
 }
 
 .faq-block {
@@ -161,6 +189,13 @@
 
 /* レスポンシブ対応 */
 @media (max-width: 900px) {
+  .section-title,
+  .inquiry-title,
+  .faq-content-title {
+    font-size: var(--font_32);
+    margin-bottom: 32px;
+  }
+
   .contact-list {
     flex-direction: column;
     align-items: center;
