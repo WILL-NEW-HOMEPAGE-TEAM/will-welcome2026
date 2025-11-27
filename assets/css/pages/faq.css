@@ -123,6 +123,15 @@
   gap: 20px;
 }
 
+.email-label {
+  color: var(--gray-50);
+  font-family: var(--noto);
+  font-size: var(--font_24);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
 .email-address {
   color: var(--gray-50);
   font-family: var(--noto);
@@ -130,6 +139,13 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.email-address:hover {
+  opacity: 0.7;
+  text-decoration: underline;
 }
 
 /* FAQセクション */

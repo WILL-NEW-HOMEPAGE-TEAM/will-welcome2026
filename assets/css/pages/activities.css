@@ -183,6 +183,7 @@
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
+  gap: 32px;
 }
 
 .month-and-event {
@@ -491,12 +492,15 @@
 
   .monthly-event {
     gap: 12px;
+    width: 100%;
+    justify-content: space-between;
   }
 
   .month-and-event {
     display: flex;
     align-items: center;
     gap: 26px;
+    flex-shrink: 0;
   }
 
   .month {
@@ -531,6 +535,7 @@
     width: 162px;
     height: 121px;
     flex-shrink: 0;
+    margin-left: auto;
   }
 
   .background-logo {
