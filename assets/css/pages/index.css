@@ -17,9 +17,24 @@
   color: var(--ivory);
 }
 
+.section-inner {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 100px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.section-inner.align-right {
+  align-items: flex-end;
+}
+
 .about-will-section {
   display: flex;
-  padding: 100px;
+  padding: 100px 0px 60px 0px;
   flex-direction: column;
   align-items: center;
 }
@@ -48,7 +63,7 @@
 
 .latest-information-section {
   display: flex;
-  padding: 80px 0px 60px 0px;
+  padding: 100px 0px 60px 0px;
   flex-direction: column;
   align-items: center;
   background: var(--shinonome);
@@ -115,32 +130,33 @@
 
 .move-buttons {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 24px;
 }
 
 .move-buttons img {
-  width: 105px;
-  height: 105px;
+  width: 44px;
+  height: 44px;
   cursor: pointer;
 }
 
 .activity-button {
-  display: flex;
-  padding: 40px 0 0 0;
+  display: inline-flex;
+  margin-top: 40px;
   flex-direction: column;
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  align-self: stretch;
-  width: 100%;
-  box-sizing: border-box;
+  align-self: flex-end;
 }
 
 .about-seminar-section {
   display: flex;
-  padding: 100px 100px 60px 100px;
+  padding: 100px 0px 60px 0px;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   gap: 56px;
 }
 
@@ -170,12 +186,13 @@
 }
 
 .seminar-detail-button {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
   text-decoration: none;
   margin-top: 40px;
+  align-self: flex-end;
 }
 
 /* 統一されたボタンスタイル */
@@ -414,6 +431,14 @@
 }
 
 @media (max-width: 900px) {
+  .section-inner {
+    padding: 0 20px;
+  }
+
+  .section-inner.align-right {
+    align-items: center;
+  }
+
   .nav-wrapper {
     display: flex;
   }
@@ -505,7 +530,7 @@
   }
 
   .about-will-section {
-    padding: 60px 40px;
+    padding: 60px 0px 40px 0px;
   }
 
   .will-title-cover {
@@ -555,15 +580,16 @@
 
   .move-buttons {
     padding-bottom: 12px;
+    gap: 16px;
   }
 
   .move-buttons img {
-    width: 66px;
-    height: 66px;
+    width: 32px;
+    height: 32px;
   }
 
   .about-seminar-section {
-    padding: 60px 40px 40px 40px;
+    padding: 60px 0px 40px 0px;
     align-items: center;
   }
 

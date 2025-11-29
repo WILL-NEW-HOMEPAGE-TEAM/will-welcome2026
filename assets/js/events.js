@@ -3,11 +3,39 @@
 // イベントデータ（直接埋め込み）
 const eventsData = [
   {
-    "title": "新サイトを開設しました！",
-    "date": "2025.4.1",
-    "image": "../../assets/images/event-photo.webp",
-    "imageAlt": "イベント写真",
-    "description": "この度、WILLの新規HPを開設致しました！これから随時このサイトで<br />入会に関する新規情報やイベント情報などを発信していくので、<br />ぜひチェックお願いします！"
+    "title": "房総半島へドライブしてきました！",
+    "date": "2025.10.12",
+    "image": "../../assets/images/events/202510_recreation_bousou-drive.webp",
+    "imageAlt": "房総半島ドライブの様子",
+    "description": "10月レクとして房総半島ドライブを開催しました！房総半島で美味しい海鮮丼を味わい、鋸山の絶景や「道の駅 保田小学校」も巡って、大満足の1日でした！"
+  },
+  {
+    "title": "U22プログラミングコンテストに参加しました！",
+    "date": "2025.8.29",
+    "image": "../../assets/images/events/202508_u22-pro-con.webp",
+    "imageAlt": "U22プログラミングコンテスト参加の様子",
+    "description": "WILLの有志メンバーで、7月末から8月29日にかけて「U22プログラミングコンテスト」に参加しました！開発したアプリの詳細は、以下のリンクよりご確認いただけます！<br /><a href=\"https://protopedia.net/prototype/private/3b37b4fe-5169-48fc-b195-483930bab3d3\" target=\"_blank\" rel=\"noopener noreferrer\">作品紹介ページ</a>"
+  },
+  {
+    "title": "Wheel-upを開催しました！",
+    "date": "2025.7.16",
+    "image": "../../assets/images/events/202507_wheel-up.webp",
+    "imageAlt": "Wheel-upイベントの様子",
+    "description": "チーム開発イベント「Wheel-up」を開催しました！約7週間、開発の基礎から学び、生成AIを用いてチームでWebアプリを開発しました。"
+  },
+  {
+    "title": "新歓BBQを開催しました！",
+    "date": "2025.5.18",
+    "image": "../../assets/images/events/202505_bbq.webp",
+    "imageAlt": "新歓BBQの様子",
+    "description": "新入生も慣れてきた頃ということで、息抜きも兼ねてBBQを開催しました！当日雨予報でしたが、当日なんとか曇りで楽しむことができました。"
+  },
+  {
+    "title": "銀座で街歩き謎解きをしてきました！",
+    "date": "2025.4.27",
+    "image": "../../assets/images/events/202504_recreation_nazotoki.webp",
+    "imageAlt": "銀座で街歩き謎解きイベントの様子",
+    "description": "4月レクとして、銀座で街歩き謎解きに参加しました！今回は新入生を含む8人が参加し、みんなで協力して謎を解き進め、無事最後までクリアしました。"
   },
   {
     "title": "新歓の時期がやってきました！",
@@ -16,14 +44,13 @@ const eventsData = [
     "imageAlt": "イベント写真",
     "description": "今年もやります！WILLの新歓！新入生、既存生、早大生かどうか関係なく、<br />プログラミングに興味ある方はぜひ一度説明会に参加してみてください！"
   },
-  // イベントを追加する場合は、以下の形式で追加してください：
-  // ,{
-  //   "title": "イベントタイトル",
-  //   "date": "2025.3.15",
-  //   "image": "../../assets/images/event-photo.webp",
-  //   "imageAlt": "イベント写真",
-  //   "description": "イベントの説明文"
-  // }
+  {
+    "title": "新サイトを開設しました！",
+    "date": "2025.4.1",
+    "image": "../../assets/images/event-photo.webp",
+    "imageAlt": "イベント写真",
+    "description": "この度、WILLの新規HPを開設致しました！これから随時このサイトで<br />入会に関する新規情報やイベント情報などを発信していくので、<br />ぜひチェックお願いします！"
+  },
 ];
 
 // アセットパスを取得する関数（main.jsの関数を使用）
@@ -152,10 +179,10 @@ function displayPagination(currentPage, totalPages) {
       // 現在のページはcurrent-buttonクラスを使用
       buttonsHTML += `<div class="current-button" style="pointer-events: none;">${i}</div>`;
     } else {
-      // 他のページはリンク付きボタン
+      // 他のページはリンク付きボタン（ボタン全体をaタグに）
       const currentPath = window.location.pathname;
       const pageParam = i === 1 ? '' : `?page=${i}`;
-      buttonsHTML += `<div class="button"><a href="${currentPath}${pageParam}">${i}</a></div>`;
+      buttonsHTML += `<a href="${currentPath}${pageParam}" class="button">${i}</a>`;
     }
   }
   

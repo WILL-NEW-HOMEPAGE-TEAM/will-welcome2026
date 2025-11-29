@@ -247,7 +247,7 @@ function getFooterHtml() {
       <div class="footer-sm-logo">
         <a
           class="x-logo"
-          href="https://x.com/pgwu_info?prefetchTimestamp=1739769263751&mx=2"
+          href="https://x.com/pgwu_info"
           aria-label="x-logo"
           ><img src="${assetsPath}/images/x-logo.webp" alt=""
         /></a>
