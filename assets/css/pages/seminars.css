@@ -1,17 +1,5 @@
 /* seminars.css - セミナーページ固有のスタイル */
 
-/* セクションタイトルの統一スタイル */
-.section-title {
-  color: var(--black);
-  text-align: center;
-  font-family: var(--noto);
-  font-size: var(--font_48);
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  margin-bottom: 48px;
-}
-
 /* 後方互換性のため旧クラス名も保持 */
 .about-seminar-title {
   display: flex;
@@ -34,9 +22,7 @@
   width: 78.75%;
   max-width: 1200px;
   flex-direction: column;
-  gap: 48px;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding: 60px 0px;
   margin: 0 auto;
 }
 
@@ -60,7 +46,7 @@
 /* セミナー申込フロー */
 .seminar-entry {
   margin: 0 auto;
-  padding-left: 46px;
+  padding-left: 48px;
   border-left: 1px solid var(--black);
   width: 60%;
   max-width: 900px;
@@ -70,7 +56,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 54px;
+  gap: 48px;
 }
 
 .entry-step-block {
@@ -103,7 +89,7 @@
   gap: 6px;
   color: var(--ivory);
   font-family: var(--ubuntu);
-  font-size: var(--font-20);
+  font-size: var(--font_20);
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -116,7 +102,7 @@
   gap: 16px;
   color: var(--gray);
   font-family: var(--noto);
-  font-size: var(--font-20);
+  font-size: var(--font_20);
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -130,7 +116,7 @@
   align-self: stretch;
   color: var(--gray);
   font-family: var(--noto);
-  font-size: var(--font-20);
+  font-size: var(--font_20);
   font-style: normal;
   font-weight: 500;
   line-height: 200%;
@@ -141,11 +127,12 @@
 .seminar-button {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   gap: 10px;
   cursor: pointer;
-  padding-top: 100px;
-  margin: 0 auto;
+  padding-top: 40px;
+  margin-left: auto;
+  margin-right: 10%;
   width: fit-content;
 }
 
@@ -163,7 +150,7 @@
   overflow: hidden;
   color: var(--ivory);
   font-family: var(--noto);
-  font-size: var(--font-20);
+  font-size: var(--font_20);
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -176,7 +163,6 @@
     padding: 56px 40px;
   }
 
-  .section-title,
   .about-seminar-title {
     font-size: var(--font_32);
     font-weight: 700;
@@ -207,7 +193,7 @@
 
   .entry-step-description {
     line-height: 150%;
-    font-size: var(--font-16);
+    font-size: var(--font_16);
   }
 
   .entry-step-text {
@@ -220,9 +206,5 @@
   .seminar-button {
     padding-top: 56px;
     padding-bottom: 32px;
-  }
-
-  .button-text {
-    font-size: var(--font-16);
   }
 }

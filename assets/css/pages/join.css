@@ -1,17 +1,5 @@
 /* join.css - 入会ページ固有のスタイル */
 
-/* セクションタイトルの統一スタイル */
-.section-title {
-  color: var(--black);
-  text-align: center;
-  font-family: var(--noto);
-  font-size: var(--font_48);
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  margin-bottom: 48px;
-}
-
 /* 後方互換性のため旧クラス名も保持 */
 .join-title,
 .event-entire-title {
@@ -39,7 +27,6 @@
   padding-top: 100px;
   justify-content: center;
   align-items: center;
-  gap: 40px;
   align-self: stretch;
 }
 
@@ -116,10 +103,9 @@
 /* 入会フローセクション */
 .join-flow-section {
   display: flex;
-  padding: 100px 0px 119px 0px;
+  padding: 60px 0px;
   flex-direction: column;
   align-items: center;
-  gap: 56px;
   align-self: stretch;
   border-bottom: 5px solid rgba(255, 255, 255, 0.3);
   background: var(--ivory);
@@ -233,7 +219,7 @@
 /* イベントセクション */
 .event-section {
   display: flex;
-  padding: 100px 108px 240px 108px;
+  padding: 60px 108px;
   flex-direction: column;
   align-items: center;
   gap: 56px;
@@ -287,14 +273,16 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  align-self: flex-start;
   gap: 36px;
+  min-width: 480px;
 }
 
 .event-title-frame {
   display: flex;
   padding: 0px 12px 8px 12px;
   align-items: flex-end;
-  gap: 35px;
+  gap: 36px;
   border-bottom: 1px solid var(--ivory);
 }
 
@@ -364,25 +352,7 @@
 
 .apply-button {
   display: flex;
-  padding: 16px 40px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 12px;
-  background: var(--ivory, #fffcf7);
-  overflow: hidden;
-  color: #51658d;
-  text-overflow: ellipsis;
-  font-family: var(--noto);
-  font-size: var(--font_20);
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-
-.apply-button-1 {
-  display: flex;
-  padding: 16px 15px;
+  padding: 16px;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -450,7 +420,6 @@
     line-height: 150%;
   }
 
-  .section-title,
   .join-title {
     font-size: var(--font_36);
     margin-bottom: 32px;
@@ -458,7 +427,7 @@
 
   .join-flow-content {
     display: flex;
-    gap: 46px;
+    gap: 44px;
     padding: 0px 28px;
     align-self: stretch;
   }
@@ -483,7 +452,6 @@
     padding: 100px 42px 160px 42px;
   }
 
-  .section-title,
   .event-entire-title {
     font-size: var(--font_36);
     margin-bottom: 32px;
@@ -508,7 +476,7 @@
 
   .event-entire-frame {
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
     align-self: stretch;
   }

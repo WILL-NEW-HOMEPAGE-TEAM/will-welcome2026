@@ -1,24 +1,5 @@
 /* CSS変数と基本スタイルは共通CSSで定義 */
 
-/* セクションタイトルの統一スタイル */
-.section-title {
-  color: var(--black);
-  text-align: center;
-  font-family: var(--noto);
-  font-size: var(--font_48);
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  margin-bottom: 48px;
-}
-
-/* セクションタイトル内のspan（補足情報など） */
-.section-title span {
-  font-size: var(--font_24);
-  font-weight: 400;
-  color: var(--gray);
-}
-
 /* 後方互換性のためcontainer-titleも保持 */
 .container-title {
   color: var(--black);
@@ -38,7 +19,7 @@
   justify-content: center;
   align-items: center;
   align-self: stretch;
-  gap: 80px;
+  gap: 60px;
   background-color: var(--ivory);
 }
 
@@ -51,7 +32,7 @@
   align-items: center;
   width: 90%;
   flex-direction: column;
-  gap: 140px;
+  gap: 120px;
 }
 
 .about-will-container {
@@ -264,21 +245,29 @@ canvas {
 .relationship-container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
 }
 
 .relationship-text {
   align-self: stretch;
-  color: var(--gray, #535353);
+  color: var(--gray);
+  text-align: center;
   font-family: var(--noto);
-  font-size: var(--font_36);
+  font-size: var(--font_28);
   font-style: normal;
   font-weight: 400;
-  line-height: 129.945%; /* = 46.78px */
+  line-height: 129.945%; /* 46.78px */
   letter-spacing: 3.24px;
   overflow: hidden;
   text-overflow: ellipsis;
   margin-bottom: 32px;
+}
+
+.relationship-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .relationship-image-container img {
@@ -290,6 +279,8 @@ canvas {
   display: flex;
   justify-content: flex-end;
   text-align: right;
+  width: 80%;
+  margin: 40px auto 0 auto;
 }
 
 .link-playground-hp {
@@ -308,7 +299,7 @@ canvas {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 40px;
+  padding: 16px 20px;
   font-size: var(--font_20);
 }
 
@@ -326,7 +317,6 @@ canvas {
     font-size: var(--font_24);
   }
 
-  .section-title,
   .container-title {
     font-size: var(--font_32);
     margin-bottom: 32px;
@@ -346,11 +336,16 @@ canvas {
     position: relative;
   }
 
+  .relationship-image-container {
+    width: 80%;
+    margin: 0 auto;
+  }
   .link-playground-hp-container {
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
     height: auto;
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-end;
+    text-align: right;
   }
 
   .link-playground-hp {
@@ -371,7 +366,6 @@ canvas {
     gap: 120px;
   }
 
-  .section-title,
   .container-title {
     font-size: var(--font_32);
   }
@@ -422,7 +416,6 @@ canvas {
   }
 
   /* タイトル & テキスト --------------------------- */
-  .section-title,
   .container-title {
     font-size: var(--font_28);
     margin-bottom: 32px;
@@ -463,12 +456,19 @@ canvas {
   }
 
   /* 関連リンク・画像 ------------------------------ */
+  .relationship-image-container {
+    width: 80%;
+    margin: 0 auto;
+  }
   .relationship-image-container img {
+    width: 100%;
     max-width: 100%;
     height: auto;
   }
   .link-playground-hp-container {
-    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: flex-end;
   }
   .link-playground-hp-square {
     font-size: var(--font_14);

@@ -1,24 +1,11 @@
 /* activities.css - 活動ページ固有のスタイル */
 
-/* セクションタイトルの統一スタイル */
-.section-title {
-  color: var(--black);
-  text-align: center;
-  font-family: var(--noto);
-  font-size: var(--font_48);
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  margin-bottom: 48px;
-}
-
 /* 新着イベントセクション */
 .new-event-section {
   display: flex;
-  padding: 100px 42px;
+  padding: 60px 48px;
   flex-direction: column;
   align-items: center;
-  gap: 56px;
   background-color: var(--ivory);
 }
 
@@ -39,7 +26,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 22px;
+  gap: 20px;
   align-self: stretch;
 }
 
@@ -48,7 +35,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 46px;
+  gap: 32px;
 }
 
 .new-event-block {
@@ -65,6 +52,8 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  min-width: 150px;
+  flex-shrink: 0;
 }
 
 .event-description {
@@ -114,7 +103,6 @@
 .yearly-schedule-title {
   text-align: center;
   font-family: var(--noto);
-  font-size: var(--font_48);
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -146,22 +134,21 @@
 
 .yearly-schedule-section {
   display: flex;
-  padding: 100px 35px 200px 35px;
+  padding: 60px 32px;
   flex-direction: column;
   align-items: center;
-  gap: 74px;
   background: var(--shinonome);
   position: relative;
 }
 
-.yearly-schedule-title {
+.yearly-schedule-section .section-title {
   color: var(--ivory);
   text-align: center;
   font-family: var(--noto);
-  font-size: var(--font_48);
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  margin-bottom: 80px;
 }
 
 .yearly-events {
@@ -252,10 +239,9 @@
 /* 活動写真セクション */
 .activity-photo-section {
   display: flex;
-  padding: 100px 0px;
+  padding: 60px 0px;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
   overflow: hidden;
 }
 
@@ -331,7 +317,7 @@
 /* PG製品セクション */
 .PG-product-section {
   display: flex;
-  padding: 100px 0px;
+  padding: 60px 0px;
   flex-direction: column;
   align-items: center;
   gap: 40px;
@@ -438,7 +424,6 @@
     padding: 59px 42px;
   }
 
-  .section-title,
   .new-event-title {
     font-size: var(--font_36);
     margin-bottom: 32px;
@@ -451,6 +436,7 @@
   .event-date {
     font-family: var(--jomolhari);
     font-size: var(--font_24);
+    min-width: 120px;
   }
 
   .event-description {
@@ -472,7 +458,6 @@
     gap: 56px;
   }
 
-  .yearly-schedule-section .section-title,
   .yearly-schedule-title {
     font-size: var(--font_36);
     margin-bottom: 32px;
@@ -548,7 +533,6 @@
     opacity: 0.2;
   }
 
-  .section-title,
   .activity-title {
     font-size: var(--font_36);
     margin-bottom: 32px;
@@ -593,7 +577,6 @@
     font-size: var(--font_20);
   }
 
-  .section-title,
   .PG-product-title {
     font-size: var(--font_36);
     margin-bottom: 32px;

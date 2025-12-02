@@ -70,7 +70,7 @@
 .event-date {
   color: var(--ivory);
   font-family: var(--noto);
-  font-size: var(--font-16);
+  font-size: var(--font_16);
   font-style: normal;
   font-weight: 700;
   line-height: 150%;

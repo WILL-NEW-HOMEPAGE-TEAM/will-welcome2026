@@ -32,6 +32,8 @@
     <link rel="stylesheet" href="../../assets/css/pages/activities.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/events.js"></script>
+    <script src="../../assets/js/activity-photo.js"></script>
   </head>
   <body>
     <!-- ヘッダー部分（共通化） -->
@@ -43,19 +45,8 @@
     <section class="new-event-section">
       <h2 class="section-title">新着イベント</h2>
       <div class="new-event-content">
-        <div class="new-event-list">
-          <div class="new-event-block">
-            <div class="event-date">2025.04.01</div>
-            <div class="event-description">
-              WILLの新サイトを開設いたしました
-            </div>
-          </div>
-          <div class="new-event-block">
-            <div class="event-date">2025.04.01</div>
-            <div class="event-description">
-              今年も新歓説明会および体験会を開催致します！
-            </div>
-          </div>
+        <div class="new-event-list" id="new-event-list">
+          <!-- イベントはJavaScriptで動的に追加されます -->
         </div>
         <a class="event-see-more" href="../events/index.html">
           <div class="see-more-text">もっと見る</div>
@@ -213,48 +204,7 @@
       <h2 class="section-title">活動の様子</h2>
       <div class="slide-wrapper">
         <div class="slider">
-          <div class="slide">
-            <img src="../../assets/images/amongus.webp" alt="" loading="lazy" />
-            <div class="event-name">Among Usをプレイ！</div>
-            <div class="event-text">究極の心理戦を楽しめました！</div>
-          </div>
-          <div class="slide">
-            <img src="../../assets/images/bbq.webp" alt="" loading="lazy" />
-            <div class="event-name">BBQ</div>
-            <div class="event-text">自然の中BBQを楽しみました！</div>
-          </div>
-          <div class="slide">
-            <img src="../../assets/images/dinner.webp" alt="" loading="lazy" />
-            <div class="event-name">打ち上げ</div>
-            <div class="event-text">秋学期終了のお祝いです！</div>
-          </div>
-          <div class="slide">
-            <img src="../../assets/images/nazotoki.webp" alt="" loading="lazy" />
-            <div class="event-name">メトロ謎解き</div>
-            <div class="event-text">皆で頑張って謎解き中...</div>
-          </div>
-
-          <!-- Duplicated slides for smooth loop -->
-          <div class="slide">
-            <img src="../../assets/images/amongus.webp" alt="" loading="lazy" />
-            <div class="event-name">Among Usをプレイ！</div>
-            <div class="event-text">究極の心理戦を楽しめました！</div>
-          </div>
-          <div class="slide">
-            <img src="../../assets/images/bbq.webp" alt="" loading="lazy" />
-            <div class="event-name">BBQ</div>
-            <div class="event-text">自然の中BBQを楽しみました！</div>
-          </div>
-          <div class="slide">
-            <img src="../../assets/images/dinner.webp" alt="" loading="lazy" />
-            <div class="event-name">打ち上げ</div>
-            <div class="event-text">秋学期終了のお祝いです！</div>
-          </div>
-          <div class="slide">
-            <img src="../../assets/images/nazotoki.webp" alt="" loading="lazy" />
-            <div class="event-name">メトロ謎解き</div>
-            <div class="event-text">皆で頑張って謎解き中...</div>
-          </div>
+          <!-- スライドはJavaScriptで動的に追加されます -->
         </div>
       </div>
     </section>
@@ -387,5 +337,42 @@
     </section>
     <!-- フッター部分（共通化） -->
     <div id="footer-container"></div>
+    <script>
+      // 新着イベントを表示する関数
+      function displayLatestEvents() {
+        try {
+          // events.jsから最新2件を取得
+          const latestEvents = eventsData.slice(0, 2);
+          const eventList = document.getElementById('new-event-list');
+          
+          if (!eventList) return;
+          
+          if (!Array.isArray(latestEvents) || latestEvents.length === 0) {
+            eventList.innerHTML = '<div class="new-event-block"><div class="event-description">イベント情報がありません</div></div>';
+            return;
+          }
+          
+          eventList.innerHTML = latestEvents.map(event => {
+            return `
+              <div class="new-event-block">
+                <div class="event-date">${event.date}</div>
+                <div class="event-description">
+                  ${event.title}
+                </div>
+              </div>
+            `;
+          }).join('');
+        } catch (error) {
+          console.error('新着イベントの表示に失敗しました:', error);
+          const eventList = document.getElementById('new-event-list');
+          if (eventList) {
+            eventList.innerHTML = '<div class="new-event-block"><div class="event-description">イベント情報の読み込みに失敗しました</div></div>';
+          }
+        }
+      }
+      
+      // ページ読み込み時に実行
+      document.addEventListener('DOMContentLoaded', displayLatestEvents);
+    </script>
   </body>
 </html>

@@ -1,17 +1,5 @@
 /* faq.css - FAQページ固有のスタイル */
 
-/* セクションタイトルの統一スタイル */
-.section-title {
-  color: var(--black);
-  text-align: center;
-  font-family: var(--noto);
-  font-size: var(--font_48);
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  margin-bottom: 48px;
-}
-
 /* 後方互換性のため旧クラス名も保持 */
 .inquiry-title,
 .faq-content-title {
@@ -35,10 +23,9 @@
 /* お問い合わせセクション */
 .inquiry-container {
   display: flex;
-  padding: 100px 0px 119px 0px;
+  padding: 60px 0px;
   flex-direction: column;
   align-items: center;
-  gap: 38px;
   align-self: stretch;
   border-bottom: 5px solid rgba(255, 252, 247, 0.3);
   background: var(--ivory);
@@ -72,16 +59,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 .follow-text {
-  color: var(--gray-50);
+  color: var(--gray);
   font-family: var(--noto);
   font-size: var(--font_24);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin-bottom: 12px;
 }
 
 .follow-x {
@@ -124,16 +112,17 @@
 }
 
 .email-label {
-  color: var(--gray-50);
+  color: var(--gray);
   font-family: var(--noto);
   font-size: var(--font_24);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin-bottom: 12px;
 }
 
 .email-address {
-  color: var(--gray-50);
+  color: var(--blue_Kashmir);
   font-family: var(--noto);
   font-size: var(--font_24);
   font-style: normal;
@@ -141,6 +130,7 @@
   line-height: normal;
   text-decoration: none;
   transition: opacity 0.2s ease;
+  border-bottom: 1px solid var(--blue_Kashmir);
 }
 
 .email-address:hover {
@@ -151,10 +141,10 @@
 /* FAQセクション */
 .faq-container {
   display: flex;
-  padding: 100px 108px;
+  padding: 60px 144px;
   flex-direction: column;
   align-items: center;
-  gap: 56px;
+  gap: 48px;
   align-self: stretch;
   background: var(--blue_Kashmir);
 }
@@ -170,7 +160,7 @@
   width: 100%;
   flex-direction: column;
   align-items: flex-start;
-  gap: 13px;
+  gap: 12px;
 }
 
 .faq-block-title {
@@ -205,7 +195,6 @@
 
 /* レスポンシブ対応 */
 @media (max-width: 900px) {
-  .section-title,
   .inquiry-title,
   .faq-content-title {
     font-size: var(--font_32);
@@ -218,7 +207,7 @@
   }
 
   .faq-container {
-    padding: 100px 20px;
+    padding: 60px 20px;
   }
 
   .faq-block {

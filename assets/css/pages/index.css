@@ -1,17 +1,5 @@
 /* CSS変数は共通CSSで定義 */
 
-/* セクションタイトルの統一スタイル */
-.section-title {
-  color: var(--black);
-  text-align: center;
-  font-family: var(--noto);
-  font-size: var(--font_48);
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  margin-bottom: 48px;
-}
-
 /* 最新情報セクションのタイトルは背景色に合わせて色を変更 */
 .latest-information-section .section-title {
   color: var(--ivory);
@@ -34,14 +22,14 @@
 
 .about-will-section {
   display: flex;
-  padding: 100px 0px 60px 0px;
+  padding: 60px 0px 60px 0px;
   flex-direction: column;
   align-items: center;
 }
 
 .will-title-cover {
   width: 100%;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
 .will-title-cover .section-title {
@@ -63,7 +51,7 @@
 
 .latest-information-section {
   display: flex;
-  padding: 100px 0px 60px 0px;
+  padding: 60px 0px 60px 0px;
   flex-direction: column;
   align-items: center;
   background: var(--shinonome);
@@ -71,7 +59,7 @@
 
 .latest-information-section .section-title {
   margin-top: 0;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
 .carousel-container {
@@ -154,10 +142,9 @@
 
 .about-seminar-section {
   display: flex;
-  padding: 100px 0px 60px 0px;
+  padding: 60px 0px 60px 0px;
   flex-direction: column;
   align-items: center;
-  gap: 56px;
 }
 
 .about-seminar-content {
@@ -169,7 +156,7 @@
 
 .about-seminar-content .section-title {
   margin-top: 0;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
 .about-seminar-description {
@@ -242,7 +229,7 @@
 
 .join-flow-and-condition-section {
   display: flex;
-  padding: 100px 0px 60px 0px;
+  padding: 60px 0px;
   flex-direction: column;
   align-items: center;
 }
@@ -257,7 +244,6 @@
   flex-direction: column;
   align-items: center;
   gap: 42px;
-  margin-bottom: 56px;
 }
 
 .join-flow-details {
@@ -593,11 +579,6 @@
     align-items: center;
   }
 
-  .section-title {
-    font-size: var(--font_32);
-    font-weight: 700;
-    margin-bottom: 32px;
-  }
 
   .join-flow-and-condition-section {
     padding: 60px 0px 40px 0px;
