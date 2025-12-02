@@ -92,6 +92,22 @@
   line-height: normal;
 }
 
+.event-description a {
+  color: var(--ivory);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--ivory);
+  transition: all 0.3s ease;
+}
+
+.event-description a:hover {
+  color: blue;
+  text-decoration: underline;
+  text-decoration-color: blue;
+  transition: all 0.3s ease;
+}
+
 /* ページネーションボタン */
 .page-buttons {
   display: flex;
@@ -128,8 +144,16 @@
   border: 1px solid var(--ivory-50);
   cursor: pointer;
   text-decoration: none;
-  color: var(--ivory-50);
+  color: var(--ivory);
   box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--gray-50);
+  color: var(--white);
+  border: 1px solid var(--ivory-50);
+  transition: all 0.3s ease;
 }
 
 /* レスポンシブ対応 */

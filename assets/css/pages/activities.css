@@ -454,7 +454,7 @@
   }
 
   .yearly-schedule-section {
-    padding: 100px 0px;
+    padding: 100px 12px;
     gap: 56px;
   }
 
@@ -491,15 +491,16 @@
   .month {
     display: flex;
     justify-content: space-between;
+    min-width: 90px;
   }
 
   .number {
-    font-size: 40px;
+    font-size: 32px;
     opacity: 0.4;
   }
 
   .roman {
-    font-size: var(--font_32);
+    font-size: var(--font_24);
     opacity: 0.4;
   }
 
@@ -517,8 +518,8 @@
   }
 
   .monthly-event img {
-    width: 162px;
-    height: 121px;
+    width: 120px;
+    height: 80px;
     flex-shrink: 0;
     margin-left: auto;
   }
@@ -606,5 +607,106 @@
   .product-photoframe img {
     width: 129px;
     height: 127px;
+  }
+}
+
+/* 900-1200pxの範囲での調整 */
+@media (min-width: 901px) and (max-width: 1200px) {
+  .yearly-schedule-section {
+    padding: 80px 24px;
+  }
+
+  .yearly-events {
+    gap: 48px;
+  }
+
+  .half-events {
+    gap: 48px;
+  }
+
+  .monthly-event {
+    gap: 20px;
+  }
+
+  .month-and-event {
+    gap: 32px;
+  }
+
+  .month {
+    min-width: 110px;
+    gap: 12px;
+  }
+
+  .number {
+    font-size: 44px;
+  }
+
+  .roman {
+    font-size: 32px;
+  }
+
+  .event {
+    font-size: var(--font_20);
+  }
+
+  .monthly-event img {
+    width: 150px;
+    height: 100px;
+  }
+}
+
+/* 400px以下のレスポンシブ対応 */
+@media (max-width: 400px) {
+  .yearly-schedule-section {
+    padding: 80px 8px;
+  }
+
+  .yearly-schedule-section .section-title {
+    margin-bottom: 48px;
+  }
+
+  .yearly-events {
+    gap: 24px;
+  }
+
+  .half-events {
+    gap: 24px;
+  }
+
+  .monthly-event {
+    gap: 6px;
+  }
+
+  .month-and-event {
+    gap: 12px;
+    flex-shrink: 1;
+  }
+
+  .month {
+    min-width: 60px;
+    gap: 8px;
+  }
+
+  .number {
+    font-size: 24px;
+  }
+
+  .roman {
+    font-size: 16px;
+  }
+
+  .event {
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .event-multiple {
+    gap: 4px;
+  }
+
+  .monthly-event img {
+    width: 90px;
+    height: 60px;
+    flex-shrink: 1;
   }
 }
