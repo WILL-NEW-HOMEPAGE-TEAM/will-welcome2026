@@ -110,6 +110,17 @@
   color: var(--ivory);
 }
 
+.yearly-schedule-description {
+  color: var(--ivory);
+  text-align: center;
+  font-family: var(--noto);
+  font-size: var(--font_28);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 129.945%;
+  padding: 0 10%;
+}
+
 .activity-title {
   text-align: center;
   font-family: var(--noto);
@@ -148,7 +159,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  margin-bottom: 80px;
+  margin-bottom: 48px;
 }
 
 .yearly-events {
@@ -156,6 +167,7 @@
   justify-content: center;
   align-items: flex-start;
   gap: 64px;
+  margin-top: 60px;
 }
 
 .half-events {
@@ -455,12 +467,15 @@
 
   .yearly-schedule-section {
     padding: 100px 12px;
-    gap: 56px;
   }
 
   .yearly-schedule-title {
     font-size: var(--font_36);
     margin-bottom: 32px;
+  }
+
+  .yearly-schedule-description {
+    font-size: var(--font_24);
   }
 
   .yearly-events {
@@ -652,6 +667,12 @@
   .monthly-event img {
     width: 150px;
     height: 100px;
+  }
+}
+
+@media (max-width: 639px) {
+  .yearly-schedule-description {
+    font-size: var(--font_18);
   }
 }
 

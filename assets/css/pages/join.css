@@ -322,6 +322,11 @@
   line-height: 1.6;
 }
 
+.as-neeeded-message a {
+  color: var(--ivory);
+  text-decoration: underline;
+}
+
 .event-schedule-frame {
   display: flex;
   flex-direction: column;

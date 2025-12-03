@@ -9,11 +9,14 @@
 /* イベントセクション */
 .event-section {
   display: flex;
-  padding: 100px 110px 30px 110px;
+  padding: 60px 10%;
   flex-direction: column;
   align-items: center;
-  gap: 80px;
   background-color: #50648c;
+}
+
+.event-section .section-title {
+  color: var(--ivory);
 }
 
 .event-list {
@@ -113,6 +116,7 @@
   display: flex;
   align-items: flex-start;
   gap: 20px;
+  margin-top: 80px;
 }
 
 .current-button {
@@ -159,11 +163,11 @@
 /* レスポンシブ対応 */
 @media (max-width: 900px) {
   .white-space {
-    height: 0px;
+    height: 40px;
   }
 
   .event-section {
-    padding: 100px 20px 30px 20px;
+    padding: 60px 20px 30px 20px;
   }
 
   .event-list {
