@@ -19,18 +19,16 @@
 /* セミナー概要セクション */
 .about-seminar {
   display: flex;
-  width: 78.75%;
-  max-width: 1200px;
+  margin: 0 auto;
+  width: 90%;
   flex-direction: column;
   padding: 60px 0px;
-  margin: 0 auto;
 }
 
 .about-seminar-description {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
   align-self: stretch;
   color: var(--gray);
   text-align: center;
@@ -136,7 +134,7 @@
   width: fit-content;
 }
 
-.button-border {
+.button-frame {
   display: flex;
   padding: 16px 40px;
   justify-content: flex-end;
@@ -159,10 +157,6 @@
 
 /* レスポンシブ対応 */
 @media (max-width: 900px) {
-  .about-seminar {
-    padding: 56px 40px;
-  }
-
   .about-seminar-title {
     font-size: var(--font_32);
     font-weight: 700;
@@ -206,5 +200,30 @@
   .seminar-button {
     padding-top: 56px;
     padding-bottom: 32px;
+  }
+}
+
+/* ───────────────────────────
+① Smart phone  (0 – 639 px)
+─────────────────────────── */
+@media (max-width: 639px) {
+  .description {
+    font-size: var(--font_18);
+  }
+
+  .button-frame.button-blue {
+    padding: 12px 20px;
+    border-radius: 8px;
+  }
+
+  .button-text.button-blue {
+    font-size: var(--font_18);
+  }
+
+  .seminar-button {
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px 0px;
   }
 }

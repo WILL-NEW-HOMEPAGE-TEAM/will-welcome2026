@@ -29,7 +29,7 @@
 
 .will-title-cover {
   width: 100%;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
 }
 
 .will-title-cover .section-title {
@@ -59,7 +59,7 @@
 
 .latest-information-section .section-title {
   margin-top: 0;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
 }
 
 .carousel-container {
@@ -156,7 +156,7 @@
 
 .about-seminar-content .section-title {
   margin-top: 0;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
 }
 
 .about-seminar-description {
@@ -183,7 +183,7 @@
 }
 
 /* 統一されたボタンスタイル */
-.button-content {
+.button-frame.button-gray {
   display: flex;
   padding: 16px 20px;
   justify-content: flex-start;
@@ -194,7 +194,7 @@
   cursor: pointer;
 }
 
-.button-content-gray {
+.button-frame.button-white {
   display: flex;
   padding: 16px 20px;
   justify-content: flex-start;
@@ -205,7 +205,7 @@
   cursor: pointer;
 }
 
-.button-text {
+.button-text.button-gray {
   overflow: hidden;
   color: var(--ivory);
   text-overflow: ellipsis;
@@ -216,7 +216,7 @@
   line-height: normal;
 }
 
-.button-text-gray {
+.button-text.button-white {
   overflow: hidden;
   color: var(--gray);
   text-overflow: ellipsis;
@@ -365,14 +365,6 @@
   background: var(--shinonome);
 }
 
-.join-condition-block > * {
-  margin-bottom: 24px;
-}
-
-.join-condition-block > *:last-child {
-  margin-bottom: 0;
-}
-
 /* 入会条件のボックス内で、condition-detailとdetail-miniの間隔を狭くする */
 .join-condition-block .condition-detail {
   margin-bottom: 4px;
@@ -383,6 +375,7 @@
 }
 
 .condition-title {
+  margin-bottom: 12px;
   font-family: var(--noto);
   font-size: var(--font_24);
   font-style: normal;
@@ -602,30 +595,57 @@
     gap: 10px;
   }
 
-  .join-conditions {
-    flex-direction: column;
-  }
-
   .join-condition-block {
     width: 300px;
-    /* height: 100px; */
+    height: 132px;
+    padding: 16px 20px;
   }
 
   .condition-title {
     font-size: var(--font_24);
-    margin: 0 16px;
   }
 
   .condition-detail {
     font-size: var(--font_16);
     white-space: normal;
+    align-self: center;
   }
 
   .detail-mini {
     font-size: var(--font_14);
+    align-self: center;
   }
 
-  .button-content {
-    padding: 5px 20px;
+}
+
+/* ───────────────────────────
+① Smart phone  (0 – 639 px)
+─────────────────────────── */
+@media (max-width: 639px) {
+
+  /* common.cssの.descriptionスタイルを適用 */
+  .description {
+    font-size: var(--font_18);
+  }
+
+  .join-conditions {
+    flex-direction: column;
+  }
+
+  .button-frame.button-gray,
+  .button-frame.button-white {
+    padding: 12px 20px;
+    border-radius: 8px;
+  }
+
+  .button-text.button-gray,
+  .button-text.button-white {
+    font-size: var(--font_18);
+  }
+
+  /* ボタンを中央寄せ */
+  .activity-button,
+  .seminar-detail-button {
+    align-self: center;
   }
 }
