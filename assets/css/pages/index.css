@@ -557,11 +557,11 @@
     justify-content: flex-start;
   }
 
-  .carousel-track {
+  /* .carousel-track {
     max-width: 331px;
     margin: 0 auto;
     overflow: hidden;
-  }
+  } */
 
   .item {
     flex: 0 0 auto;

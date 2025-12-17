@@ -153,6 +153,7 @@
         let currentIndex;
         let totalItems;
         let autoScrollInterval;
+        let isAnimating = false; // アニメーション中フラグ
 
         // Save original sources for hover effects
         const leftSrc = "./assets/images/pages/index/arrow_left.svg";
@@ -242,7 +243,19 @@
           track.style.transform = `translateX(-${offset}px)`;
         }
 
+        // ボタンの無効化/有効化
+        function setButtonsDisabled(disabled) {
+          isAnimating = disabled;
+          leftBtn.style.opacity = disabled ? "0.5" : "1";
+          rightBtn.style.opacity = disabled ? "0.5" : "1";
+          leftBtn.style.pointerEvents = disabled ? "none" : "auto";
+          rightBtn.style.pointerEvents = disabled ? "none" : "auto";
+        }
+
         function moveNext() {
+          if (isAnimating) return;
+          
+          setButtonsDisabled(true);
           currentIndex++;
           updateCarousel(true);
 
@@ -250,7 +263,10 @@
             setTimeout(() => {
               currentIndex = cloneCount;
               updateCarousel(false);
+              setButtonsDisabled(false);
             }, 500);
+          } else {
+            setTimeout(() => setButtonsDisabled(false), 500);
           }
           
           // Reset auto-scroll timer when manually moved
@@ -258,6 +274,9 @@
         }
 
         function movePrev() {
+          if (isAnimating) return;
+          
+          setButtonsDisabled(true);
           currentIndex--;
           updateCarousel(true);
 
@@ -265,7 +284,10 @@
             setTimeout(() => {
               currentIndex = totalItems + cloneCount - 1;
               updateCarousel(false);
+              setButtonsDisabled(false);
             }, 500);
+          } else {
+            setTimeout(() => setButtonsDisabled(false), 500);
           }
           
           // Reset auto-scroll timer when manually moved
