@@ -32,11 +32,11 @@
         </div>
         <div class="about-will-cover">
           <div class="about-will-description description">
-            WILLは、2020年8月に設立された早稲田大学ITサークル（WASEDA IT Leader Lab）です。<br>
-            PlayGroundというオンラインのIT学習コミュニティと<br>
-            協力して、プログラミングやデザイン、データサイエンス<br>
-            を学んでいます。<br>
-            イベントや企業案件により、遊びも成長も両立することができます。
+            WILLは、2020年8月に設立された早稲田大学ITサークル<br>
+            （WASEDA IT Leader Lab）です。<br>
+            オンラインIT学習コミュニティのPlayGroundと協力して、<br>
+            プログラミングやデザイン、データサイエンスを学んでいます。<br>
+            私たちは、3つのビジョンと目標を掲げて活動しています。
           </div>
         </div>
       </div>
@@ -97,8 +97,8 @@
                 </div>
               </div>
               <p class="step-explanation">
-                ZOOMにて活動内容、入会方法についての説明会を行っています。<br />
-                下の詳細ボタンよりアクセスし、応募の上奮ってご参加ください！
+                ZOOMにて活動内容、入会方法についての説明会を行っています。<br>
+                参加方法は下の「詳しい入会フローはこちら」からご確認ください！
               </p>
             </div>
             <div class="join-flow-block">
@@ -112,8 +112,8 @@
                 </div>
               </div>
               <p class="step-explanation">
-                ZOOMにて活動内容、入会方法についての説明会を行っています。<br />
-                下の詳細ボタンよりアクセスし、応募の上奮ってご参加ください！
+                説明会後、入会された方はWILLの活動で使用するツールのセットアップを行います。<br>
+                初心者の方でも安心して活動を始められるよう、メンバーがサポートします。
               </p>
             </div>
           </div>
@@ -143,12 +143,14 @@
         const track = document.querySelector(".carousel-inner");
         const leftBtn = document.querySelector(".left");
         const rightBtn = document.querySelector(".right");
+        const carouselTrack = document.querySelector(".carousel-track");
 
         const cardGap = 48;
         const cardWidth = 331;
-        let visibleCount = window.innerWidth < 900 ? 1 : 2;
+        let visibleCount;
+        let cloneCount;
         let itemWidth = cardWidth + cardGap;
-        let currentIndex = visibleCount;
+        let currentIndex;
         let totalItems;
         let autoScrollInterval;
 
@@ -169,6 +171,27 @@
         );
         rightBtn.addEventListener("mouseout", () => (rightBtn.src = rightSrc));
 
+        // Calculate visible count based on screen width
+        function calculateVisibleCount() {
+          const containerWidth = carouselTrack.offsetWidth;
+          // Calculate how many cards can fit (including gaps)
+          const calculatedCount = Math.floor((containerWidth + cardGap) / (cardWidth + cardGap));
+          // Minimum 1, maximum based on available space
+          return Math.max(1, calculatedCount);
+        }
+
+        // Reset auto-scroll timer
+        function resetAutoScroll() {
+          clearInterval(autoScrollInterval);
+          autoScrollInterval = setInterval(moveNext, 5000);
+        }
+
+        // Calculate center offset to position current item at center
+        function getCenterOffset() {
+          const containerWidth = carouselTrack.offsetWidth;
+          return (containerWidth - cardWidth) / 2;
+        }
+
         function initializeCarousel() {
           // Remove all items and rebuild
           const originalItems = [...track.querySelectorAll(".item")].filter(
@@ -178,24 +201,33 @@
           originalItems.forEach((item) => track.appendChild(item));
           totalItems = originalItems.length;
 
-          // Clone for infinite scroll
-          for (let i = 0; i < visibleCount; i++) {
-            const cloneFirst = originalItems[i].cloneNode(true);
-            const cloneLast = originalItems[totalItems - 1 - i].cloneNode(true);
+          if (totalItems === 0) return;
+
+          // Calculate visible count based on current screen width
+          visibleCount = calculateVisibleCount();
+          
+          // Clone for infinite scroll (need extra clones for center alignment)
+          cloneCount = Math.max(visibleCount, 3);
+          for (let i = 0; i < cloneCount; i++) {
+            const cloneFirst = originalItems[i % totalItems].cloneNode(true);
+            const cloneLast = originalItems[(totalItems - 1 - (i % totalItems)) % totalItems].cloneNode(true);
             cloneFirst.classList.add("cloned");
             cloneLast.classList.add("cloned");
             track.appendChild(cloneFirst);
             track.insertBefore(cloneLast, track.firstChild);
           }
 
-          currentIndex = visibleCount;
+          currentIndex = cloneCount;
           itemWidth = cardWidth + cardGap;
           track.style.transition = "none";
-          track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+          
+          // Center the current item
+          const centerOffset = getCenterOffset();
+          const offset = currentIndex * itemWidth - centerOffset;
+          track.style.transform = `translateX(-${offset}px)`;
 
           // Restart auto-scroll
-          clearInterval(autoScrollInterval);
-          autoScrollInterval = setInterval(moveNext, 5000);
+          resetAutoScroll();
         }
 
         function updateCarousel(smooth = true) {
@@ -204,7 +236,9 @@
           } else {
             track.style.transition = "transform 0.5s ease-in-out";
           }
-          const offset = currentIndex * itemWidth;
+          // Center the current item
+          const centerOffset = getCenterOffset();
+          const offset = currentIndex * itemWidth - centerOffset;
           track.style.transform = `translateX(-${offset}px)`;
         }
 
@@ -212,24 +246,30 @@
           currentIndex++;
           updateCarousel(true);
 
-          if (currentIndex === totalItems + visibleCount) {
+          if (currentIndex >= totalItems + cloneCount) {
             setTimeout(() => {
-              currentIndex = visibleCount;
+              currentIndex = cloneCount;
               updateCarousel(false);
             }, 500);
           }
+          
+          // Reset auto-scroll timer when manually moved
+          resetAutoScroll();
         }
 
         function movePrev() {
           currentIndex--;
           updateCarousel(true);
 
-          if (currentIndex < visibleCount) {
+          if (currentIndex < cloneCount) {
             setTimeout(() => {
-              currentIndex = totalItems;
+              currentIndex = totalItems + cloneCount - 1;
               updateCarousel(false);
             }, 500);
           }
+          
+          // Reset auto-scroll timer when manually moved
+          resetAutoScroll();
         }
 
         rightBtn.addEventListener("click", moveNext);
@@ -237,7 +277,7 @@
 
         // Responsive handling
         window.addEventListener("resize", () => {
-          const newCount = window.innerWidth < 900 ? 1 : 2;
+          const newCount = calculateVisibleCount();
           if (newCount !== visibleCount) {
             visibleCount = newCount;
             initializeCarousel();

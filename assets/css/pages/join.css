@@ -39,7 +39,7 @@
 }
 
 .join-condition-block {
-  width: 350px;
+  width: 360px;
   height: 180px;
   display: flex;
   padding: 24px 36px;
@@ -178,7 +178,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  gap: 4px;
 }
 
 .step-title {
@@ -200,7 +200,6 @@
   font-size: var(--font_18);
   font-style: normal;
   font-weight: 500;
-  line-height: 199.8%;
   text-transform: capitalize;
 }
 
@@ -398,7 +397,7 @@
 }
 
 .apply-button:disabled {
-  opacity: 0.5;
+  background: gray;
   cursor: not-allowed;
   pointer-events: none;
 }
@@ -471,18 +470,18 @@
   .join-flow {
     flex: 1 0 0;
   }
-
+/* 
   .join-flow-block {
     align-self: stretch;
-  }
+  } */
 
   .step {
     gap: 10px;
   }
-
+/* 
   .step-explanation {
     flex: 0 0 0;
-  }
+  } */
 
   .event-section {
     padding: 60px 10% 120px 10%;

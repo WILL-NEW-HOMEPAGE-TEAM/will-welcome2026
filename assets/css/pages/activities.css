@@ -75,6 +75,19 @@
   gap: 4px;
   align-self: stretch;
   text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.event-see-more:hover {
+  transform: translateX(-4px);
+}
+
+.event-see-more:hover .see-more-text {
+  color: #6a6a6a;
+}
+
+.event-see-more:hover img {
+  transform: translateX(4px);
 }
 
 .see-more-text {
@@ -86,6 +99,11 @@
   line-height: normal;
   cursor: pointer;
   text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.event-see-more img {
+  transition: transform 0.2s ease;
 }
 
 .event-link img {

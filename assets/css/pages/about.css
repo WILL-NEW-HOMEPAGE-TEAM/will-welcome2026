@@ -275,36 +275,43 @@ canvas {
   height: auto;
 }
 
-.link-playground-hp-container {
-  display: flex;
-  justify-content: flex-end;
-  text-align: right;
-  width: 80%;
-  margin: 40px auto 0 auto;
-}
-
-.link-playground-hp {
-  display: block;
-  width: fit-content;
+.button-playground-hp {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
   text-decoration: none;
-  color: white;
+  margin-top: 40px;
+  align-self: flex-end;
 }
 
-.link-playground-hp-square {
-  border-radius: 12px;
-  background: var(--shinonome);
-  text-overflow: ellipsis;
+.button-frame.button-gray {
   display: flex;
-  align-items: center;
+  padding: 16px 20px;
   justify-content: center;
-  padding: 16px 32px;
-  font-size: var(--font_20);
-  font-weight: 700;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  background: var(--gray);
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.link-playground-hp-square:hover {
-  opacity: 0.5;
-  transition: 0.5s;
+.button-frame.button-gray:hover {
+  background: #6a6a6a;
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(83, 83, 83, 0.3);
+}
+
+.button-text.button-gray {
+  overflow: hidden;
+  color: var(--ivory);
+  text-overflow: ellipsis;
+  font-family: var(--noto);
+  font-size: var(--font_20);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 /* フッター関連スタイルは共通CSSで定義 */
@@ -339,19 +346,11 @@ canvas {
     width: 80%;
     margin: 0 auto;
   }
-  .link-playground-hp-container {
-    width: 100%;
-    justify-content: flex-end;
-    text-align: right;
-  }
 
-  .link-playground-hp {
+  .button-playground-hp {
     display: block;
   }
 
-  .link-playground-hp-square {
-    font-size: var(--font_18);
-  }
 }
 
 /* ───────────────────────────
@@ -462,17 +461,8 @@ canvas {
     height: auto;
   }
 
-  .link-playground-hp-container {
+  .button-playground-hp { 
     width: 100%;
-    justify-content: center;
-  }
-
-  .link-playground-hp {
-    width: 100%;
-  }
-
-  .link-playground-hp-square {
-    font-size: var(--font_18);
-    padding: 12px 24px;
+    align-self: center;
   }
 }

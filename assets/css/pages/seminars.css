@@ -127,32 +127,44 @@
   flex-direction: column;
   align-items: flex-end;
   gap: 10px;
-  cursor: pointer;
   padding-top: 40px;
   margin-left: auto;
   margin-right: 10%;
   width: fit-content;
 }
 
-.button-frame {
-  display: flex;
-  padding: 16px 40px;
-  justify-content: flex-end;
-  align-items: flex-start;
-  gap: 10px;
-  border-radius: 12px;
-  background: var(--shinonome);
+.seminar-button a {
+  text-decoration: none;
 }
 
-.button-text {
+/* 統一されたボタンスタイル */
+.button-frame.button-gray {
+  display: flex;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  background: var(--gray);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button-frame.button-gray:hover {
+  background: #6a6a6a;
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(83, 83, 83, 0.3);
+}
+
+.button-text.button-gray {
   overflow: hidden;
   color: var(--ivory);
+  text-overflow: ellipsis;
   font-family: var(--noto);
   font-size: var(--font_20);
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  text-decoration: none;
 }
 
 /* レスポンシブ対応 */
@@ -208,15 +220,6 @@
 ─────────────────────────── */
 @media (max-width: 639px) {
   .description {
-    font-size: var(--font_18);
-  }
-
-  .button-frame.button-blue {
-    padding: 12px 20px;
-    border-radius: 8px;
-  }
-
-  .button-text.button-blue {
     font-size: var(--font_18);
   }
 

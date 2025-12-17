@@ -3,7 +3,7 @@
 // イベントデータ（直接埋め込み）
 const eventsData = [
   {
-    "title": "房総半島へドライブしてきました！",
+    "title": "房総半島へドライブしました！",
     "date": "2025.10.12",
     "image": "../../assets/images/events/202510_recreation_bousou-drive.webp",
     "imageAlt": "房総半島ドライブの様子",
@@ -14,7 +14,7 @@ const eventsData = [
     "date": "2025.8.29",
     "image": "../../assets/images/events/202508_u22-pro-con.webp",
     "imageAlt": "U22プログラミングコンテスト参加の様子",
-    "description": "WILLの有志メンバーで、7月末から8月29日にかけて「U22プログラミングコンテスト」に参加しました！開発したアプリの詳細は、以下のリンクよりご確認いただけます！<br /><a href=\"https://protopedia.net/prototype/private/3b37b4fe-5169-48fc-b195-483930bab3d3\" target=\"_blank\" rel=\"noopener noreferrer\">作品紹介ページ</a>"
+    "description": "WILLの有志メンバーで、7月末から8月29日にかけて「U22プログラミングコンテスト」に参加しました！開発したアプリの詳細は、以下のリンクよりご確認いただけます！<br><a href=\"https://protopedia.net/prototype/private/3b37b4fe-5169-48fc-b195-483930bab3d3\" target=\"_blank\" rel=\"noopener noreferrer\">作品紹介ページ</a>"
   },
   {
     "title": "Wheel-upを開催しました！",
@@ -31,7 +31,7 @@ const eventsData = [
     "description": "新入生も慣れてきた頃ということで、息抜きも兼ねてBBQを開催しました！当日雨予報でしたが、当日なんとか曇りで楽しむことができました。"
   },
   {
-    "title": "銀座で街歩き謎解きをしてきました！",
+    "title": "銀座で街歩き謎解きをしました！",
     "date": "2025.4.27",
     "image": "../../assets/images/events/202504_recreation_nazotoki.webp",
     "imageAlt": "銀座で街歩き謎解きイベントの様子",
@@ -42,14 +42,14 @@ const eventsData = [
     "date": "2025.4.1",
     "image": "../../assets/images/shinkan.webp",
     "imageAlt": "イベント写真",
-    "description": "今年もやります！WILLの新歓！新入生、既存生、早大生かどうか関係なく、<br />プログラミングに興味ある方はぜひ一度説明会に参加してみてください！"
+    "description": "今年もやります！WILLの新歓！新入生、既存生、早大生かどうか関係なく、<br>プログラミングに興味ある方はぜひ一度説明会に参加してみてください！"
   },
   {
     "title": "新サイトを開設しました！",
     "date": "2025.4.1",
     "image": "../../assets/images/event-photo.webp",
     "imageAlt": "イベント写真",
-    "description": "この度、WILLの新規HPを開設致しました！これから随時このサイトで<br />入会に関する新規情報やイベント情報などを発信していくので、<br />ぜひチェックお願いします！"
+    "description": "この度、WILLの新規HPを開設致しました！これから随時このサイトで<br>入会に関する新規情報やイベント情報などを発信していくので、<br>ぜひチェックお願いします！"
   },
 ];
 
