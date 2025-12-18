@@ -163,7 +163,7 @@
 
         // タッチデバイスかどうかを判定
         let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        let touchActive = false;
+        let touchTimeout = null;
 
         // マウスイベント（タッチデバイス以外）
         if (!isTouchDevice) {
@@ -179,26 +179,18 @@
           rightBtn.addEventListener("mouseout", () => (rightBtn.src = rightSrc));
         }
 
-        // タッチデバイス用：タッチ開始時にホバー画像に、終了時に元に戻す
+        // タッチデバイス用：タッチ開始時にホバー画像に変更
         if (isTouchDevice) {
-          leftBtn.addEventListener("touchstart", (e) => {
-            touchActive = true;
+          leftBtn.addEventListener("touchstart", () => {
             leftBtn.src = leftHoverSrc;
-            e.preventDefault(); // マウスイベントの発火を防ぐ
-          });
-          leftBtn.addEventListener("touchend", (e) => {
-            e.preventDefault();
-            // アニメーション完了後に元に戻す（setButtonsDisabledで処理される）
+            // 既存のタイマーをクリア
+            if (touchTimeout) clearTimeout(touchTimeout);
           });
           
-          rightBtn.addEventListener("touchstart", (e) => {
-            touchActive = true;
+          rightBtn.addEventListener("touchstart", () => {
             rightBtn.src = rightHoverSrc;
-            e.preventDefault(); // マウスイベントの発火を防ぐ
-          });
-          rightBtn.addEventListener("touchend", (e) => {
-            e.preventDefault();
-            // アニメーション完了後に元に戻す（setButtonsDisabledで処理される）
+            // 既存のタイマーをクリア
+            if (touchTimeout) clearTimeout(touchTimeout);
           });
         }
 
