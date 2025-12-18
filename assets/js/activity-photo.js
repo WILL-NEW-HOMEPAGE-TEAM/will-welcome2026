@@ -42,7 +42,7 @@ const activityPhotosData = [
     "image": "./assets/images/tmc.webp",
     "alt": "TMC",
     "name": "TMC",
-    "text": "TMCでも謎解きをしてきました！"
+    "text": "TOKYO MYSTERY CIRCUSで謎解きをしてきました！"
   }
 ];
 

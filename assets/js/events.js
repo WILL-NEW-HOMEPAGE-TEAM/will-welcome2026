@@ -14,21 +14,21 @@ const eventsData = [
     "date": "2025.8.29",
     "image": "../../assets/images/events/202508_u22-pro-con.webp",
     "imageAlt": "U22プログラミングコンテスト参加の様子",
-    "description": "WILLの有志メンバーで、7月末から8月29日にかけて「U22プログラミングコンテスト」に参加しました！開発したアプリの詳細は、以下のリンクよりご確認いただけます！<br><a href=\"https://protopedia.net/prototype/private/3b37b4fe-5169-48fc-b195-483930bab3d3\" target=\"_blank\" rel=\"noopener noreferrer\">作品紹介ページ</a>"
+    "description": "WILLの有志メンバーで、7月末から8月29日にかけて「U22プログラミングコンテスト」に参加しました！<br>開発したアプリの詳細は、以下のリンクよりご確認いただけます！<br><a href=\"https://protopedia.net/prototype/private/3b37b4fe-5169-48fc-b195-483930bab3d3\" target=\"_blank\" rel=\"noopener noreferrer\">作品紹介ページ</a>"
   },
   {
     "title": "Wheel-upを開催しました！",
     "date": "2025.7.16",
     "image": "../../assets/images/events/202507_wheel-up.webp",
     "imageAlt": "Wheel-upイベントの様子",
-    "description": "チーム開発イベント「Wheel-up」を開催しました！約7週間、開発の基礎から学び、生成AIを用いてチームでWebアプリを開発しました。"
+    "description": "チーム開発イベント「Wheel-up」を開催しました！<br>約7週間、開発の基礎から学び、生成AIを用いてチームでWebアプリを開発しました。"
   },
   {
     "title": "新歓BBQを開催しました！",
     "date": "2025.5.18",
     "image": "../../assets/images/events/202505_bbq.webp",
     "imageAlt": "新歓BBQの様子",
-    "description": "新入生も慣れてきた頃ということで、息抜きも兼ねてBBQを開催しました！当日雨予報でしたが、当日なんとか曇りで楽しむことができました。"
+    "description": "新入生も慣れてきた頃ということで、息抜きも兼ねてBBQを開催しました！天気予報は雨でしたが、当日はなんとか曇りで楽しむことができました。"
   },
   {
     "title": "銀座で街歩き謎解きをしました！",
@@ -42,14 +42,14 @@ const eventsData = [
     "date": "2025.4.1",
     "image": "../../assets/images/shinkan.webp",
     "imageAlt": "イベント写真",
-    "description": "今年もやります！WILLの新歓！新入生、既存生、早大生かどうか関係なく、<br>プログラミングに興味ある方はぜひ一度説明会に参加してみてください！"
+    "description": "今年もやります！WILLの新歓！新入生、既存生、早大生ではない方も大歓迎です！<br>プログラミングに興味ある方はぜひ一度説明会に参加してみてください！"
   },
   {
     "title": "新サイトを開設しました！",
     "date": "2025.4.1",
     "image": "../../assets/images/event-photo.webp",
     "imageAlt": "イベント写真",
-    "description": "この度、WILLの新規HPを開設致しました！これから随時このサイトで<br>入会に関する新規情報やイベント情報などを発信していくので、<br>ぜひチェックお願いします！"
+    "description": "この度、WILLの新規HPを開設致しました！これから随時このサイトで入会に関する新規情報やイベント情報などを発信していきます！<br>ぜひチェックしてみてください！"
   },
 ];
 

@@ -296,7 +296,7 @@
 
 .slider {
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* 上寄せに変更 */
   gap: 48px;
   align-self: stretch;
   /* animation: slide-flow 20s infinite linear 1s both; */
@@ -340,7 +340,7 @@
   color: var(--gray);
   text-align: center;
   font-family: var(--noto);
-  font-size: var(--font_14);
+  font-size: var(--font_16);
   font-style: normal;
   font-weight: 400;
   line-height: normal;

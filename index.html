@@ -98,7 +98,7 @@
               </div>
               <p class="step-explanation">
                 ZOOMにて活動内容、入会方法についての説明会を行っています。<br>
-                参加方法は下の「詳しい入会フローはこちら」からご確認ください！
+                参加方法は下のボタン「詳しい入会フローはこちら」からご確認ください！
               </p>
             </div>
             <div class="join-flow-block">
@@ -171,6 +171,14 @@
           () => (rightBtn.src = rightHoverSrc)
         );
         rightBtn.addEventListener("mouseout", () => (rightBtn.src = rightSrc));
+
+        // タッチデバイス用：タッチ終了後に元の画像に戻す
+        leftBtn.addEventListener("touchend", () => {
+          setTimeout(() => (leftBtn.src = leftSrc), 100);
+        });
+        rightBtn.addEventListener("touchend", () => {
+          setTimeout(() => (rightBtn.src = rightSrc), 100);
+        });
 
         // Calculate visible count based on screen width
         function calculateVisibleCount() {

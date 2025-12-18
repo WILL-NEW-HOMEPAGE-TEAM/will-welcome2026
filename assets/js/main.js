@@ -198,7 +198,7 @@ function getHeaderHtml() {
     { url: normalizePath(basePath, '/pages/activities/index.html'), text: '活動紹介', page: 'activities', mobileText: '活動紹介' },
     { url: normalizePath(basePath, '/pages/events/index.html'), text: 'イベント一覧', page: 'events', mobileText: 'イベント一覧' },
     { url: normalizePath(basePath, '/pages/join/index.html'), text: '新歓・入会', page: 'join', mobileText: '新歓・入会' },
-    { url: normalizePath(basePath, '/pages/faq/index.html'), text: 'お問い合わせ・FAQ', page: 'faq', mobileText: 'FAQ・お問い合わせ' }
+    { url: normalizePath(basePath, '/pages/faq/index.html'), text: 'お問い合わせ・FAQ', page: 'faq', mobileText: 'お問い合わせ・FAQ' }
   ];
   
   // モバイルメニューのHTMLを生成
@@ -328,34 +328,32 @@ window.onload = function () {
 
 window.addEventListener("load", () => {
   const slider = document.querySelector(".slider");
-  const slides = Array.from(slider.children);
+  if (!slider) return;
+  
   const gap = 48;
   const speed = 1.0;
   let offsetX = 0;
 
-  // Clone original slides for seamless loop
-  slides.forEach((slide) => {
-    const clone = slide.cloneNode(true);
-    slider.appendChild(clone);
-  });
+  // activity-photo.jsで既にスライドが複製されているため、ここでは複製しない
+  // 元のスライド数を計算（全体の半分が元のスライド）
+  const allSlides = Array.from(slider.children);
+  const originalSlideCount = allSlides.length / 2;
 
   // Allow layout to stabilize before measuring
   setTimeout(() => {
-    const firstSlide = slides[0];
+    const firstSlide = allSlides[0];
+    if (!firstSlide) return;
+    
     const slideWidth = firstSlide.offsetWidth;
-
-    const visibleSlides = 4; // How many are visible at once
-    const totalVisibleWidth = (slideWidth + gap) * visibleSlides;
-
-    const originalContentWidth = (slideWidth + gap) * slides.length;
-
-    // 👇 Adjust this manually for better timing
-    const resetPoint = originalContentWidth - totalVisibleWidth + 15.0;
+    
+    // 元のスライドの幅の合計（リセットポイント）
+    const originalContentWidth = (slideWidth + gap) * originalSlideCount;
 
     function loop() {
       offsetX -= speed;
 
-      if (-offsetX >= resetPoint) {
+      // 元のスライド分スクロールしたらリセット
+      if (-offsetX >= originalContentWidth) {
         offsetX = 0;
         slider.style.transform = `translateX(0px)`;
       } else {
@@ -366,5 +364,5 @@ window.addEventListener("load", () => {
     }
 
     loop();
-  }, 50);
+  }, 100);
 });
