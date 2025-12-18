@@ -127,10 +127,21 @@
   margin-top: 48px;
 }
 
+.move-buttons button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .move-buttons img {
   width: 64px;
   height: 64px;
-  cursor: pointer;
+  display: block;
+  pointer-events: none; /* 画像のクリック判定を無効化し、button要素のクリック判定のみ有効にする */
 }
 
 .activity-button {

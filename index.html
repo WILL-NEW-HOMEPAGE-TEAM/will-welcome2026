@@ -51,8 +51,12 @@
             </div>
           </div>
           <div class="move-buttons">
-            <img class="left" src="./assets/images/pages/index/arrow_left.svg" alt="前へ" />
-            <img class="right" src="./assets/images/pages/index/arrow_right.svg" alt="次へ" />
+            <button class="left" type="button" aria-label="前へ">
+              <img src="./assets/images/pages/index/arrow_left.svg" alt="前へ" />
+            </button>
+            <button class="right" type="button" aria-label="次へ">
+              <img src="./assets/images/pages/index/arrow_right.svg" alt="次へ" />
+            </button>
           </div>
         </div>
         <a class="activity-button" href="./pages/activities/">
@@ -155,6 +159,10 @@
         let autoScrollInterval;
         let isAnimating = false; // アニメーション中フラグ
 
+        // ボタン内の画像要素を取得
+        const leftImg = leftBtn.querySelector('img');
+        const rightImg = rightBtn.querySelector('img');
+
         // Save original sources for hover effects
         const leftSrc = "./assets/images/pages/index/arrow_left.svg";
         const leftHoverSrc = "./assets/images/pages/index/arrow-left-hover.svg";
@@ -169,26 +177,26 @@
         if (!isTouchDevice) {
           leftBtn.addEventListener(
             "mouseover",
-            () => (leftBtn.src = leftHoverSrc)
+            () => (leftImg.src = leftHoverSrc)
           );
-          leftBtn.addEventListener("mouseout", () => (leftBtn.src = leftSrc));
+          leftBtn.addEventListener("mouseout", () => (leftImg.src = leftSrc));
           rightBtn.addEventListener(
             "mouseover",
-            () => (rightBtn.src = rightHoverSrc)
+            () => (rightImg.src = rightHoverSrc)
           );
-          rightBtn.addEventListener("mouseout", () => (rightBtn.src = rightSrc));
+          rightBtn.addEventListener("mouseout", () => (rightImg.src = rightSrc));
         }
 
         // タッチデバイス用：タッチ開始時にホバー画像に変更
         if (isTouchDevice) {
           leftBtn.addEventListener("touchstart", () => {
-            leftBtn.src = leftHoverSrc;
+            leftImg.src = leftHoverSrc;
             // 既存のタイマーをクリア
             if (touchTimeout) clearTimeout(touchTimeout);
           });
           
           rightBtn.addEventListener("touchstart", () => {
-            rightBtn.src = rightHoverSrc;
+            rightImg.src = rightHoverSrc;
             // 既存のタイマーをクリア
             if (touchTimeout) clearTimeout(touchTimeout);
           });
@@ -275,8 +283,8 @@
           
           // 有効化時は画像を元に戻す（タッチデバイス対応）
           if (!disabled) {
-            leftBtn.src = leftSrc;
-            rightBtn.src = rightSrc;
+            leftImg.src = leftSrc;
+            rightImg.src = rightSrc;
           }
         }
 
