@@ -157,23 +157,23 @@ function getCurrentPage() {
     return 'top';
   }
   
-  // 各ページの判定
-  if (relativePath.includes('/pages/about/')) {
+  // 各ページの判定（末尾スラッシュの有無に関わらず判定）
+  if (relativePath.includes('/pages/about') && !relativePath.includes('/pages/about/') === false || relativePath.startsWith('/pages/about')) {
     return 'about';
   }
-  if (relativePath.includes('/pages/seminars/')) {
+  if (relativePath.includes('/pages/seminars') && !relativePath.includes('/pages/seminars/') === false || relativePath.startsWith('/pages/seminars')) {
     return 'seminars';
   }
-  if (relativePath.includes('/pages/activities/')) {
+  if (relativePath.includes('/pages/activities') && !relativePath.includes('/pages/activities/') === false || relativePath.startsWith('/pages/activities')) {
     return 'activities';
   }
-  if (relativePath.includes('/pages/events/')) {
+  if (relativePath.includes('/pages/events') && !relativePath.includes('/pages/events/') === false || relativePath.startsWith('/pages/events')) {
     return 'events';
   }
-  if (relativePath.includes('/pages/join/')) {
+  if (relativePath.includes('/pages/join') && !relativePath.includes('/pages/join/') === false || relativePath.startsWith('/pages/join')) {
     return 'join';
   }
-  if (relativePath.includes('/pages/faq/')) {
+  if (relativePath.includes('/pages/faq') && !relativePath.includes('/pages/faq/') === false || relativePath.startsWith('/pages/faq')) {
     return 'faq';
   }
   
