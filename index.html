@@ -258,6 +258,12 @@
           rightBtn.style.opacity = disabled ? "0.5" : "1";
           leftBtn.style.pointerEvents = disabled ? "none" : "auto";
           rightBtn.style.pointerEvents = disabled ? "none" : "auto";
+          
+          // 有効化時は画像を元に戻す（タッチデバイス対応）
+          if (!disabled) {
+            leftBtn.src = leftSrc;
+            rightBtn.src = rightSrc;
+          }
         }
 
         function moveNext() {
