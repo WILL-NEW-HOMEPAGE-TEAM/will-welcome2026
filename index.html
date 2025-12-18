@@ -161,24 +161,46 @@
         const rightSrc = "./assets/images/pages/index/arrow_right.svg";
         const rightHoverSrc = "./assets/images/pages/index/arrow-right-hover.svg";
 
-        leftBtn.addEventListener(
-          "mouseover",
-          () => (leftBtn.src = leftHoverSrc)
-        );
-        leftBtn.addEventListener("mouseout", () => (leftBtn.src = leftSrc));
-        rightBtn.addEventListener(
-          "mouseover",
-          () => (rightBtn.src = rightHoverSrc)
-        );
-        rightBtn.addEventListener("mouseout", () => (rightBtn.src = rightSrc));
+        // タッチデバイスかどうかを判定
+        let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        let touchActive = false;
 
-        // タッチデバイス用：タッチ終了後に元の画像に戻す
-        leftBtn.addEventListener("touchend", () => {
-          setTimeout(() => (leftBtn.src = leftSrc), 100);
-        });
-        rightBtn.addEventListener("touchend", () => {
-          setTimeout(() => (rightBtn.src = rightSrc), 100);
-        });
+        // マウスイベント（タッチデバイス以外）
+        if (!isTouchDevice) {
+          leftBtn.addEventListener(
+            "mouseover",
+            () => (leftBtn.src = leftHoverSrc)
+          );
+          leftBtn.addEventListener("mouseout", () => (leftBtn.src = leftSrc));
+          rightBtn.addEventListener(
+            "mouseover",
+            () => (rightBtn.src = rightHoverSrc)
+          );
+          rightBtn.addEventListener("mouseout", () => (rightBtn.src = rightSrc));
+        }
+
+        // タッチデバイス用：タッチ開始時にホバー画像に、終了時に元に戻す
+        if (isTouchDevice) {
+          leftBtn.addEventListener("touchstart", (e) => {
+            touchActive = true;
+            leftBtn.src = leftHoverSrc;
+            e.preventDefault(); // マウスイベントの発火を防ぐ
+          });
+          leftBtn.addEventListener("touchend", (e) => {
+            e.preventDefault();
+            // アニメーション完了後に元に戻す（setButtonsDisabledで処理される）
+          });
+          
+          rightBtn.addEventListener("touchstart", (e) => {
+            touchActive = true;
+            rightBtn.src = rightHoverSrc;
+            e.preventDefault(); // マウスイベントの発火を防ぐ
+          });
+          rightBtn.addEventListener("touchend", (e) => {
+            e.preventDefault();
+            // アニメーション完了後に元に戻す（setButtonsDisabledで処理される）
+          });
+        }
 
         // Calculate visible count based on screen width
         function calculateVisibleCount() {
