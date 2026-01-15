@@ -3,7 +3,7 @@
 /* 空白セクション */
 .white-space {
   height: 100px;
-  background: var(--white);
+  background: var(--shinonome);
 }
 
 /* イベントセクション */
@@ -12,11 +12,11 @@
   padding: 60px 10%;
   flex-direction: column;
   align-items: center;
-  background-color: #50648c;
+  background: var(--ivory);
 }
 
 .event-section .section-title {
-  color: var(--ivory);
+  color: var(--shinonome);
 }
 
 .event-list {
@@ -61,7 +61,7 @@
 }
 
 .event-title {
-  color: var(--ivory);
+  color: var(--shinonome);
   text-align: center;
   font-family: var(--noto);
   font-size: var(--font_20);
@@ -71,7 +71,7 @@
 }
 
 .event-date {
-  color: var(--ivory);
+  color: var(--shinonome);
   font-family: var(--noto);
   font-size: var(--font_16);
   font-style: normal;
@@ -86,8 +86,8 @@
   align-items: flex-start;
   gap: 28px;
   align-self: stretch;
-  border-top: 1px solid var(--ivory-50);
-  color: var(--ivory);
+  border-top: 1px solid var(--shinonome);
+  color: var(--shinonome);
   font-family: var(--noto);
   font-size: var(--font_16);
   font-style: normal;
@@ -96,11 +96,11 @@
 }
 
 .event-description a {
-  color: var(--ivory);
+  color: var(--shinonome);
   text-decoration: underline;
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
-  text-decoration-color: var(--ivory);
+  text-decoration-color: var(--shinonome);
   transition: all 0.3s ease;
 }
 
@@ -119,7 +119,7 @@
   margin-top: 80px;
 }
 
-.current-button {
+.page-buttons .current-button {
   display: flex;
   width: 44px;
   height: 44px;
@@ -129,13 +129,17 @@
   align-items: center;
   gap: 10px;
   border-radius: 5px;
-  border: 1px solid var(--ivory);
-  background-color: var(--ivory);
-  color: var(--blue_Kashmir);
+  border: 2px solid var(--shinonome) !important;
+  background: var(--shinonome) !important;
+  color: var(--ivory) !important;
   cursor: pointer;
+  font-family: var(--noto);
+  font-size: var(--font_18);
+  font-weight: 700;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.button {
+.page-buttons .button {
   display: flex;
   width: 44px;
   height: 44px;
@@ -145,19 +149,26 @@
   align-items: center;
   gap: 10px;
   border-radius: 5px;
-  border: 1px solid var(--ivory-50);
+  border: 2px solid var(--shinonome);
+  background: var(--white);
   cursor: pointer;
   text-decoration: none;
-  color: var(--ivory);
+  color: var(--shinonome);
   box-sizing: border-box;
   transition: all 0.3s ease;
+  font-family: var(--noto);
+  font-size: var(--font_18);
+  font-weight: 400;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.button:hover {
-  background-color: var(--gray-50);
-  color: var(--white);
-  border: 1px solid var(--ivory-50);
+.page-buttons .button:hover {
+  background: var(--shinonome);
+  color: var(--ivory);
+  border: 2px solid var(--shinonome);
   transition: all 0.3s ease;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* レスポンシブ対応 */

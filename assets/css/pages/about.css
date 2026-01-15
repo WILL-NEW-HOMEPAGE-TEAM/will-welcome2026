@@ -135,23 +135,30 @@ canvas {
 }
 
 .chart-legend {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
   font-size: var(--font_16);
   list-style: none;
   margin: 0;
   padding: 0;
   color: var(--gray);
-  max-height: 266px;
-  overflow-y: auto;
-  padding-right: 8px;
+  width: 100%;
+  align-content: start;
+}
+
+/* 項目が多い凡例用 - 2列表示 */
+.chart-legend.multi-column {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 12px;
+  font-size: var(--font_14);
 }
 
 .chart-legend li {
   display: flex;
   align-items: center;
   gap: 8px;
+  white-space: nowrap;
 }
 
 .legend-color {
@@ -316,8 +323,8 @@ canvas {
 
 /* フッター関連スタイルは共通CSSで定義 */
 
-@media (max-width: 1200px) {
-  /* ハンバーガーメニュー関連スタイルは共通CSSで定義 */
+@media (max-width: 1200px) and (min-width: 1024px) {
+  /* 1024-1200pxの範囲：フォントサイズのみ調整、レイアウトは2列維持 */
 
   .about-will-text {
     font-size: var(--font_24);
@@ -333,11 +340,6 @@ canvas {
     font-size: var(--font_24);
   }
 
-  .chart-grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-
   .relationship-container {
     position: relative;
   }
@@ -351,6 +353,36 @@ canvas {
     display: block;
   }
 
+}
+
+@media (max-width: 1023px) {
+  /* 1023px以下：チャートを1列表示に */
+  
+  .chart-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  /* 1列表示時は中央寄せに、横幅を制限 */
+  .chart-content {
+    justify-content: center;
+    max-width: fit-content;
+    margin: 0 auto;
+  }
+  
+  /* 凡例の横幅を制限してバランスを調整 */
+  .chart-legend {
+    width: auto;
+    min-width: 120px;
+    max-width: 140px;
+  }
+  
+  /* 所属学部の凡例は少し広めに */
+  .chart-legend.multi-column {
+    min-width: 180px;
+    max-width: 240px;
+  }
+  
 }
 
 /* ───────────────────────────
@@ -380,18 +412,30 @@ canvas {
     font-size: var(--font_24);
   }
 
-  .chart-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 64px;
-  }
+  /* タブレット専用の調整 */
   .chart-box {
     width: 100%;
     height: auto;
     min-height: auto;
   }
   canvas {
-    width: 220px !important;
-    height: 220px !important;
+    width: 240px !important;
+    height: 240px !important;
+  }
+  
+  /* タブレット用の凡例サイズ調整（2:1の比率） */
+  .chart-legend {
+    min-width: 120px;
+    max-width: 140px;
+  }
+  
+  /* タブレットでも凡例は2列を維持 */
+  .chart-legend.multi-column {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 12px;
+    font-size: var(--font_14);
+    min-width: 200px;
+    max-width: 240px;
   }
 }
 
@@ -442,13 +486,25 @@ canvas {
     min-height: auto;
   }
   canvas {
-    width: 180px !important;
-    height: 180px !important;
+    width: 200px !important;
+    height: 200px !important;
   }
+  
+  /* スマホ用の凡例サイズ調整（2:1の比率） */
   .chart-legend {
-    font-size: var(--font_14);
-    max-height: 180px;
-    overflow-y: auto;
+    font-size: var(--font_12);
+    gap: 8px;
+    min-width: 100px;
+    max-width: 120px;
+  }
+  
+  /* スマホでも凡例は2列を維持 */
+  .chart-legend.multi-column {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 10px;
+    font-size: var(--font_12);
+    min-width: 180px;
+    max-width: 200px;
   }
 
   /* 関連リンク・画像 ------------------------------ */
@@ -464,5 +520,38 @@ canvas {
   .button-playground-hp { 
     width: 100%;
     align-self: center;
+  }
+}
+
+/* ───────────────────────────
+  超小型スマホ  (0 – 450 px)
+─────────────────────────── */
+@media (max-width: 450px) {
+  /* さらに小さい画面用の調整 */
+  canvas {
+    width: 160px !important;
+    height: 160px !important;
+  }
+  
+  /* 超小型スマホ用の凡例サイズ調整（2:1の比率） */
+  .chart-legend {
+    min-width: 80px;
+    max-width: 100px;
+  }
+  
+  .chart-legend.multi-column {
+    gap: 5px 8px;
+    font-size: 11px;
+    min-width: 150px;
+    max-width: 170px;
+  }
+  
+  .chart-legend li {
+    gap: 6px;
+  }
+  
+  .legend-color {
+    width: 14px;
+    height: 14px;
   }
 }

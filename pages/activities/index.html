@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="../../assets/css/common.css" />
     <link rel="stylesheet" href="../../assets/css/components.css" />
     <link rel="stylesheet" href="../../assets/css/pages/activities.css" />
+    <link rel="stylesheet" href="../../assets/css/pages/events.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../../assets/js/main.js"></script>
     <script src="../../assets/js/events.js"></script>
@@ -48,9 +49,9 @@
         <div class="new-event-list" id="new-event-list">
           <!-- イベントはJavaScriptで動的に追加されます -->
         </div>
-        <a class="event-see-more" href="../events/index.html">
+        <a class="event-see-more" href="#event-list-section">
           <div class="see-more-text">もっと見る</div>
-          <img src="../../assets/images/chevron-right.svg" alt="イベント一覧へ"
+          <img src="../../assets/images/chevron-down.svg" alt="イベント一覧へ"
         /></a>
       </div>
     </section>
@@ -101,8 +102,12 @@
                 <div class="number">7</div>
                 <div class="roman">Jul.</div>
               </div>
-              <div class="event">テスト期間</div>
+              <div class="event-multiple">
+                <div class="event">テスト期間</div>
+                <div class="event">ご飯会</div>
+              </div>
             </div>
+            <img src="../../assets/images/dinner.webp" alt="" loading="lazy" />
           </div>
           <div class="monthly-event">
             <div class="month-and-event">
@@ -110,8 +115,12 @@
                 <div class="number">8</div>
                 <div class="roman">Aug.</div>
               </div>
-              <div class="event">花火大会</div>
+              <div class="event-multiple">
+                <div class="event">花火大会</div>
+                <div class="event">謎解き</div>
+              </div>
             </div>
+            <img src="../../assets/images/june.webp" alt="" loading="lazy" />
           </div>
           <div class="monthly-event">
             <div class="month-and-event">
@@ -137,6 +146,7 @@
               </div>
               <div class="event">Wheel-up秋期</div>
             </div>
+            <img src="../../assets/images/events/202507_wheel-up.webp" alt="" loading="lazy" />
           </div>
           <div class="monthly-event">
             <div class="month-and-event">
@@ -204,133 +214,100 @@
         <img src="../../assets/images/L.webp" alt="" />
       </div>
     </section>
-    <section class="activity-photo-section">
-      <h2 class="section-title">活動の様子</h2>
-      <div class="slide-wrapper">
-        <div class="slider">
-          <!-- スライドはJavaScriptで動的に追加されます -->
-        </div>
+    <section class="event-section" id="event-list-section">
+      <h2 class="section-title">イベント一覧</h2>
+      <div class="event-list">
+        <!-- イベントリストはJavaScriptで動的に生成されます -->
+      </div>
+      <div class="page-buttons">
+        <!-- ページネーションボタンはJavaScriptで動的に生成されます -->
       </div>
     </section>
+    <!-- <section class="activity-photo-section">
+      <h2 class="section-title">活動の様子</h2>
+      <div class="carousel-container">
+        <div class="carousel-track">
+          <div class="carousel-inner">
+            アイテムはJavaScriptで動的に追加されます 
+          </div>
+        </div>
+        <div class="move-buttons">
+          <button class="left" type="button" aria-label="前へ">
+            <img src="../../assets/images/pages/index/arrow_left.svg" alt="前へ" />
+          </button>
+          <button class="right" type="button" aria-label="次へ">
+            <img src="../../assets/images/pages/index/arrow_right.svg" alt="次へ" />
+          </button>
+        </div>
+      </div>
+    </section> -->
     <section class="PG-product-section">
       <h2 class="section-title">WILL・PlayGroundメンバーの成果物</h2>
       <div class="PG-product-list">
-        <div class="product-row">
-          <a class="product-block" href="https://www.copitto.com/">
-            <div class="product-photoframe">
-              <img src="../../assets/images/copitto.webp" alt="" loading="lazy" />
-            </div>
-            <div class="service-name">コピット</div>
-            <div class="developer">by Harune,Raku,Kenta,Ayaka</div>
-          </a>
-          <a
-            class="product-block"
-            href="https://speckled-shirt-113.notion.site/PGCloud-7a6177b25b9e4ae0ba341bcaffeefc47?pvs=4"
-          >
-            <div class="product-photoframe">
-              <img src="../../assets/images/PGCloud.webp" alt="" loading="lazy" />
-            </div>
-            <div class="service-name">PGCloud</div>
-            <div class="developer">by Yuta Izumi</div>
-          </a>
-          <a
-            class="product-block"
-            href="https://apps.apple.com/jp/app/uniboo/id6479956266"
-          >
-            <div class="product-photoframe">
-              <img src="../../assets/images/uniboo.webp" alt="" loading="lazy" />
-            </div>
-            <div class="service-name">UNIBOO</div>
-            <div class="developer">by TUS葛飾TEAM</div>
-          </a>
-        </div>
-        <div class="product-row">
-          <a class="product-block" href="https://kanatonishiura.com/">
-            <div class="product-photoframe">
-              <img src="../../assets/images/my-digital-garden.webp" alt="" loading="lazy" />
-            </div>
-            <div class="service-name">My Digital Garden</div>
-            <div class="developer">by Kanato Nishiura</div>
-          </a>
-          <a
-            class="product-block"
-            href="https://github.com/gw31415/mstdn.vim"
-          >
-            <div class="product-photoframe">
-              <img src="../../assets/images/mstdn.webp" alt="" loading="lazy" />
-            </div>
-            <div class="service-name">mstdn.vim</div>
-            <div class="developer">by Yuki Okugawa</div>
-          </a>
-          <a
-            class="product-block"
-            href="https://pub.dev/packages/focused_area_ocr_flutter"
-          >
-            <div class="product-photoframe">
-              <img src="../../assets/images/flutter.webp" alt="" loading="lazy" />
-            </div>
-            <div class="service-name">Focused Area OCR Flutter</div>
-            <div class="developer">by Kaoru Matarai</div>
-          </a>
-        </div>
-        <div class="product-column">
-          <a class="product-block" href="https://www.copitto.com/">
-            <div class="product-photoframe">
-              <img src="../../assets/images/copitto.webp" alt="" loading="lazy" />
-            </div>
-            <div class="service-name">コピット</div>
-            <div class="developer">by Harune,Raku,Kenta,Ayaka</div>
-          </a>
-          <a
-            class="product-block"
-            href="https://speckled-shirt-113.notion.site/PGCloud-7a6177b25b9e4ae0ba341bcaffeefc47?pvs=4"
-          >
-            <div class="product-photoframe">
-              <img src="../../assets/images/PGCloud.webp" alt="" loading="lazy" />
-            </div>
-            <div class="service-name">PGCloud</div>
-            <div class="developer">by Yuta Izumi</div>
-          </a>
-          <a
-            class="product-block"
-            href="https://github.com/gw31415/mstdn.vim"
-          >
-            <div class="product-photoframe">
-              <img src="../../assets/images/mstdn.webp" alt="" loading="lazy" />
-            </div>
-            <div class="service-name">mstdn.vim</div>
-            <div class="developer">by Yuki Okugawa</div>
-          </a>
-        </div>
-        <div class="product-column">
-          <a
-            class="product-block"
-            href="https://apps.apple.com/jp/app/uniboo/id6479956266"
-          >
-            <div class="product-photoframe">
-              <img src="../../assets/images/uniboo.webp" alt="" loading="lazy" />
-            </div>
-            <div class="service-name">UNIBOO</div>
-            <div class="developer">by TUS葛飾TEAM</div>
-          </a>
-          <a class="product-block" href="https://kanatonishiura.com/">
-            <div class="product-photoframe">
-              <img src="../../assets/images/my-digital-garden.webp" alt="" loading="lazy" />
-            </div>
-            <div class="service-name">My Digital Garden</div>
-            <div class="developer">by Kanato Nishiura</div>
-          </a>
-          <a
-            class="product-block"
-            href="https://pub.dev/packages/focused_area_ocr_flutter"
-          >
-            <div class="product-photoframe">
-              <img src="../../assets/images/flutter.webp" alt="" loading="lazy" />
-            </div>
-            <div class="service-name">Focused Area OCR Flutter</div>
-            <div class="developer">by Kaoru Matarai</div>
-          </a>
-        </div>
+        <a
+          class="product-block"
+          href="https://protopedia.net/prototype/private/3b37b4fe-5169-48fc-b195-483930bab3d3"
+        >
+          <div class="product-photoframe">
+            <img src="../../assets/images/events/202508_u22-pro-con.webp" alt="" loading="lazy" />
+          </div>
+          <div class="service-name">SDGsサイト</div>
+          <div class="developer">by WILLメンバー</div>
+        </a>
+        <a class="product-block" href="https://www.copitto.com/">
+          <div class="product-photoframe">
+            <img src="../../assets/images/copitto.webp" alt="" loading="lazy" />
+          </div>
+          <div class="service-name">コピット</div>
+          <div class="developer">by Harune,Raku,Kenta,Ayaka</div>
+        </a>
+        <a
+          class="product-block"
+          href="https://speckled-shirt-113.notion.site/PGCloud-7a6177b25b9e4ae0ba341bcaffeefc47?pvs=4"
+        >
+          <div class="product-photoframe">
+            <img src="../../assets/images/PGCloud.webp" alt="" loading="lazy" />
+          </div>
+          <div class="service-name">PGCloud</div>
+          <div class="developer">by Yuta Izumi</div>
+        </a>
+        <a
+          class="product-block"
+          href="https://apps.apple.com/jp/app/uniboo/id6479956266"
+        >
+          <div class="product-photoframe">
+            <img src="../../assets/images/uniboo.webp" alt="" loading="lazy" />
+          </div>
+          <div class="service-name">UNIBOO</div>
+          <div class="developer">by TUS葛飾TEAM</div>
+        </a>
+        <a class="product-block" href="https://kanatonishiura.com/">
+          <div class="product-photoframe">
+            <img src="../../assets/images/my-digital-garden.webp" alt="" loading="lazy" />
+          </div>
+          <div class="service-name">My Digital Garden</div>
+          <div class="developer">by Kanato Nishiura</div>
+        </a>
+        <a
+          class="product-block"
+          href="https://github.com/gw31415/mstdn.vim"
+        >
+          <div class="product-photoframe">
+            <img src="../../assets/images/mstdn.webp" alt="" loading="lazy" />
+          </div>
+          <div class="service-name">mstdn.vim</div>
+          <div class="developer">by Yuki Okugawa</div>
+        </a>
+        <a
+          class="product-block"
+          href="https://pub.dev/packages/focused_area_ocr_flutter"
+        >
+          <div class="product-photoframe">
+            <img src="../../assets/images/flutter.webp" alt="" loading="lazy" />
+          </div>
+          <div class="service-name">Focused Area OCR Flutter</div>
+          <div class="developer">by Kaoru Matarai</div>
+        </a>
       </div>
       <div class="background-logo-left">
         <img src="../../assets/images/W.webp" alt="" />
@@ -377,6 +354,238 @@
       
       // ページ読み込み時に実行
       document.addEventListener('DOMContentLoaded', displayLatestEvents);
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const track = document.querySelector(".carousel-inner");
+        const leftBtn = document.querySelector(".left");
+        const rightBtn = document.querySelector(".right");
+        const carouselTrack = document.querySelector(".carousel-track");
+
+        if (!track || !leftBtn || !rightBtn || !carouselTrack) return;
+
+        const cardGap = 48;
+        const cardWidth = 331;
+        let visibleCount;
+        let cloneCount;
+        let itemWidth = cardWidth + cardGap;
+        let currentIndex;
+        let totalItems;
+        let autoScrollInterval;
+        let isAnimating = false; // アニメーション中フラグ
+
+        // ボタン内の画像要素を取得
+        const leftImg = leftBtn.querySelector('img');
+        const rightImg = rightBtn.querySelector('img');
+
+        // Save original sources for hover effects
+        const leftSrc = "../../assets/images/pages/index/arrow_left.svg";
+        const leftHoverSrc = "../../assets/images/pages/index/arrow-left-hover.svg";
+        const rightSrc = "../../assets/images/pages/index/arrow_right.svg";
+        const rightHoverSrc = "../../assets/images/pages/index/arrow-right-hover.svg";
+
+        // タッチデバイスかどうかを判定
+        let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        let touchTimeout = null;
+
+        // マウスイベント（タッチデバイス以外）
+        if (!isTouchDevice) {
+          leftBtn.addEventListener(
+            "mouseover",
+            () => (leftImg.src = leftHoverSrc)
+          );
+          leftBtn.addEventListener("mouseout", () => (leftImg.src = leftSrc));
+          rightBtn.addEventListener(
+            "mouseover",
+            () => (rightImg.src = rightHoverSrc)
+          );
+          rightBtn.addEventListener("mouseout", () => (rightImg.src = rightSrc));
+        }
+
+        // タッチデバイス用：タッチ開始時にホバー画像に変更
+        if (isTouchDevice) {
+          leftBtn.addEventListener("touchstart", () => {
+            leftImg.src = leftHoverSrc;
+            // 既存のタイマーをクリア
+            if (touchTimeout) clearTimeout(touchTimeout);
+          });
+          
+          rightBtn.addEventListener("touchstart", () => {
+            rightImg.src = rightHoverSrc;
+            // 既存のタイマーをクリア
+            if (touchTimeout) clearTimeout(touchTimeout);
+          });
+        }
+
+        // Calculate visible count based on screen width
+        function calculateVisibleCount() {
+          const containerWidth = carouselTrack.offsetWidth;
+          // Calculate how many cards can fit (including gaps)
+          const calculatedCount = Math.floor((containerWidth + cardGap) / (cardWidth + cardGap));
+          // Minimum 1, maximum based on available space
+          return Math.max(1, calculatedCount);
+        }
+
+        // Reset auto-scroll timer
+        function resetAutoScroll() {
+          clearInterval(autoScrollInterval);
+          autoScrollInterval = setInterval(moveNext, 5000);
+        }
+
+        // Calculate center offset to position current item at center
+        function getCenterOffset() {
+          const containerWidth = carouselTrack.offsetWidth;
+          return (containerWidth - cardWidth) / 2;
+        }
+
+        function initializeCarousel() {
+          // Remove all items and rebuild
+          const originalItems = [...track.querySelectorAll(".item")].filter(
+            (item) => !item.classList.contains("cloned")
+          );
+          track.innerHTML = "";
+          originalItems.forEach((item) => track.appendChild(item));
+          totalItems = originalItems.length;
+
+          if (totalItems === 0) return;
+
+          // Calculate visible count based on current screen width
+          visibleCount = calculateVisibleCount();
+          
+          // Clone for infinite scroll (need extra clones for center alignment)
+          cloneCount = Math.max(visibleCount, 3);
+          for (let i = 0; i < cloneCount; i++) {
+            const cloneFirst = originalItems[i % totalItems].cloneNode(true);
+            const cloneLast = originalItems[(totalItems - 1 - (i % totalItems)) % totalItems].cloneNode(true);
+            cloneFirst.classList.add("cloned");
+            cloneLast.classList.add("cloned");
+            track.appendChild(cloneFirst);
+            track.insertBefore(cloneLast, track.firstChild);
+            
+            // クローンされた画像にもクラスを追加（既に読み込まれている場合）
+            const cloneFirstImg = cloneFirst.querySelector('img');
+            const cloneLastImg = cloneLast.querySelector('img');
+            if (cloneFirstImg && cloneFirstImg.complete && cloneFirstImg.naturalWidth && cloneFirstImg.naturalHeight) {
+              const aspectRatio = cloneFirstImg.naturalWidth / cloneFirstImg.naturalHeight;
+              if (aspectRatio < 1) {
+                cloneFirstImg.classList.add('portrait');
+                cloneFirstImg.classList.remove('landscape');
+              } else {
+                cloneFirstImg.classList.add('landscape');
+                cloneFirstImg.classList.remove('portrait');
+              }
+            }
+            if (cloneLastImg && cloneLastImg.complete && cloneLastImg.naturalWidth && cloneLastImg.naturalHeight) {
+              const aspectRatio = cloneLastImg.naturalWidth / cloneLastImg.naturalHeight;
+              if (aspectRatio < 1) {
+                cloneLastImg.classList.add('portrait');
+                cloneLastImg.classList.remove('landscape');
+              } else {
+                cloneLastImg.classList.add('landscape');
+                cloneLastImg.classList.remove('portrait');
+              }
+            }
+          }
+
+          currentIndex = cloneCount;
+          itemWidth = cardWidth + cardGap;
+          track.style.transition = "none";
+          
+          // Center the current item
+          const centerOffset = getCenterOffset();
+          const offset = currentIndex * itemWidth - centerOffset;
+          track.style.transform = `translateX(-${offset}px)`;
+
+          // Restart auto-scroll
+          resetAutoScroll();
+        }
+
+        function updateCarousel(smooth = true) {
+          if (!smooth) {
+            track.style.transition = "none";
+          } else {
+            track.style.transition = "transform 0.5s ease-in-out";
+          }
+          // Center the current item
+          const centerOffset = getCenterOffset();
+          const offset = currentIndex * itemWidth - centerOffset;
+          track.style.transform = `translateX(-${offset}px)`;
+        }
+
+        // ボタンの無効化/有効化
+        function setButtonsDisabled(disabled) {
+          isAnimating = disabled;
+          leftBtn.style.opacity = disabled ? "0.5" : "1";
+          rightBtn.style.opacity = disabled ? "0.5" : "1";
+          leftBtn.style.pointerEvents = disabled ? "none" : "auto";
+          rightBtn.style.pointerEvents = disabled ? "none" : "auto";
+          
+          // 有効化時は画像を元に戻す（タッチデバイス対応）
+          if (!disabled) {
+            leftImg.src = leftSrc;
+            rightImg.src = rightSrc;
+          }
+        }
+
+        function moveNext() {
+          if (isAnimating) return;
+          
+          setButtonsDisabled(true);
+          currentIndex++;
+          updateCarousel(true);
+
+          if (currentIndex >= totalItems + cloneCount) {
+            setTimeout(() => {
+              currentIndex = cloneCount;
+              updateCarousel(false);
+              setButtonsDisabled(false);
+            }, 500);
+          } else {
+            setTimeout(() => setButtonsDisabled(false), 500);
+          }
+          
+          // Reset auto-scroll timer when manually moved
+          resetAutoScroll();
+        }
+
+        function movePrev() {
+          if (isAnimating) return;
+          
+          setButtonsDisabled(true);
+          currentIndex--;
+          updateCarousel(true);
+
+          if (currentIndex < cloneCount) {
+            setTimeout(() => {
+              currentIndex = totalItems + cloneCount - 1;
+              updateCarousel(false);
+              setButtonsDisabled(false);
+            }, 500);
+          } else {
+            setTimeout(() => setButtonsDisabled(false), 500);
+          }
+          
+          // Reset auto-scroll timer when manually moved
+          resetAutoScroll();
+        }
+
+        rightBtn.addEventListener("click", moveNext);
+        leftBtn.addEventListener("click", movePrev);
+
+        // Responsive handling
+        window.addEventListener("resize", () => {
+          const newCount = calculateVisibleCount();
+          if (newCount !== visibleCount) {
+            visibleCount = newCount;
+            initializeCarousel();
+          }
+        });
+
+        // Initial setup - wait for activity-photo.js to load items
+        setTimeout(() => {
+          initializeCarousel();
+        }, 100);
+      });
     </script>
   </body>
 </html>

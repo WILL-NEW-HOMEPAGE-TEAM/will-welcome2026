@@ -45,7 +45,7 @@
   align-self: stretch;
 }
 
-.event-date {
+.new-event-section .event-date {
   color: var(--gray);
   font-family: var(--esteban);
   font-size: var(--font_32);
@@ -56,7 +56,7 @@
   flex-shrink: 0;
 }
 
-.event-description {
+.new-event-section .event-description {
   overflow: hidden;
   color: var(--gray);
   text-overflow: ellipsis;
@@ -260,12 +260,22 @@
 
 .background-logo {
   position: absolute;
-  right: -10px;
+  right: 0;
   bottom: 34px;
+  z-index: -1;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0;
+  font-size: 0;
+  line-height: 0;
 }
 
 .background-logo img {
   opacity: 0.2;
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 
 /* 活動写真セクション */
@@ -275,74 +285,106 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  background: var(--shinonome);
 }
 
-.activity-title {
-  text-align: center;
-  font-family: var(--noto);
-  font-size: var(--font_48);
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  color: var(--shinonome);
+.activity-photo-section .section-title {
+  color: var(--ivory);
+  margin-top: 0;
+  margin-bottom: 48px;
 }
 
-.slide-wrapper {
+.carousel-container {
   display: flex;
-  overflow: hidden;
-  gap: 48px;
-  position: relative;
+  flex-direction: column;
+  align-items: center;
+  /* 親要素の制約を超えて画面幅いっぱいに表示 */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  box-sizing: border-box;
 }
 
-.slider {
+.carousel-inner {
   display: flex;
-  align-items: flex-start; /* 上寄せに変更 */
+  align-items: center;
   gap: 48px;
-  align-self: stretch;
-  /* animation: slide-flow 20s infinite linear 1s both; */
+  transition: transform 2s ease-in-out;
   will-change: transform;
-  flex-shrink: 0;
 }
 
-.slide {
+.carousel-track {
+  overflow: hidden;
+  width: 100%;
+}
+
+.item {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  flex: 0 0 auto;
 }
 
-.slide img {
-  width: 400px;
-  height: 250px;
-  border-radius: 12px;
+.item img {
+  width: 331px;
+  height: 218px;
+  object-fit: cover;
+  object-position: center;
 }
 
-/* @keyframes slide-flow {
-  from {
-    transform: translateX(100px);
-  }
-  to {
-    transform: translateX(calc(-50% + 100px));
-  }
-} */
+/* 縦長の画像もトリミングして表示 */
+.item img.portrait {
+  object-fit: cover;
+}
+
+/* 横長の画像はトリミングして表示 */
+.item img.landscape {
+  object-fit: cover;
+}
+
+.move-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.move-buttons button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.move-buttons img {
+  width: 64px;
+  height: 64px;
+  display: block;
+  pointer-events: none; /* 画像のクリック判定を無効化し、button要素のクリック判定のみ有効にする */
+}
 
 .event-name {
-  color: var(--gray);
+  color: var(--ivory);
   text-align: center;
   font-family: var(--noto);
-  font-size: var(--font_24);
+  font-size: var(--font_20);
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   line-height: normal;
 }
 
 .event-text {
-  color: var(--gray);
+  color: var(--ivory);
   text-align: center;
   font-family: var(--noto);
-  font-size: var(--font_16);
+  font-size: var(--font_14);
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   line-height: normal;
 }
 
@@ -353,11 +395,13 @@
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  background-color: var(--blue_Kashmir);
+  background: var(--shinonome);
   position: relative;
+  z-index: -2;
 }
 
 .PG-product-section .section-title {
+  padding: 0 10%;
   color: var(--ivory);
 }
 
@@ -375,18 +419,17 @@
 
 .PG-product-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  gap: 36px;
+  align-items: flex-start;
+  gap: 48px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .product-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 96px;
-  align-self: stretch;
+  display: none;
 }
 
 .product-column {
@@ -400,6 +443,8 @@
   gap: 8px;
   cursor: pointer;
   text-decoration: none;
+  flex: 0 0 auto;
+  width: calc((100% - 144px) / 4);
 }
 
 .product-block:hover {
@@ -442,12 +487,22 @@
 
 .background-logo-left {
   position: absolute;
-  left: -60px;
+  left: 0;
   bottom: 34px;
+  z-index: -1;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0;
+  font-size: 0;
+  line-height: 0;
 }
 
 .background-logo-left img {
   opacity: 0.06;
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 
 /* レスポンシブ対応 */
@@ -461,13 +516,13 @@
     margin-bottom: 32px;
   }
 
-  .event-date {
+  .new-event-section .event-date {
     font-family: var(--jomolhari);
     font-size: var(--font_24);
     min-width: 120px;
   }
 
-  .event-description {
+  .new-event-section .event-description {
     font-family: var(--inter);
     font-size: var(--font_16);
   }
@@ -483,6 +538,7 @@
 
   .yearly-schedule-section {
     padding: 100px 12px;
+    z-index: -2;
   }
 
   .yearly-schedule-title {
@@ -559,50 +615,64 @@
     position: absolute;
     right: -30px;
     bottom: 34px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0;
+    font-size: 0;
+    line-height: 0;
   }
 
   .background-logo img {
     opacity: 0.2;
+    display: block;
+    margin: 0;
+    padding: 0;
   }
 
-  .activity-title {
+  .activity-photo-section .section-title {
     font-size: var(--font_36);
     margin-bottom: 32px;
   }
 
-  .slide-wrapper {
-    display: flex;
-    overflow: hidden;
-    gap: 48px;
+  .carousel-container {
+    gap: 12px;
   }
 
-  .slider {
-    justify-content: center;
-    gap: 48px;
+  .carousel-inner {
+    justify-content: flex-start;
   }
 
-  .slide {
-    display: flex;
-    width: 200px;
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+  .item {
+    flex: 0 0 auto;
   }
 
-  .slide img {
-    width: 200px;
-    height: 125px;
-    border: 1px solid var(--gray);
+  .item img {
+    width: 331px;
+    height: 200px;
+    flex-shrink: 0;
+    object-fit: cover;
+    object-position: center;
   }
 
-  @keyframes slide-flow {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-56.13%);
-    }
+  /* 縦長の画像もトリミングして表示 */
+  .item img.portrait {
+    object-fit: cover;
+  }
+
+  /* 横長の画像はトリミングして表示 */
+  .item img.landscape {
+    object-fit: cover;
+  }
+
+  .move-buttons {
+    padding-bottom: 12px;
+    gap: 24px;
+  }
+
+  .move-buttons img {
+    width: 48px;
+    height: 48px;
   }
 
   .event-name {
@@ -615,20 +685,12 @@
   }
 
   .PG-product-list {
-    flex-direction: row;
+    gap: 48px 64px;
+    padding: 0 32px;
   }
 
-  .product-row {
-    display: none;
-  }
-
-  .product-column {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 42px;
-    align-self: stretch;
+  .product-block {
+    width: calc((100% - 192px) / 4);
   }
 
   .product-photoframe {
@@ -636,8 +698,20 @@
   }
 
   .product-photoframe img {
-    width: 129px;
-    height: 127px;
+    width: 144px;
+    height: 144px;
+  }
+}
+
+/* スマホ対応（600px以下） */
+@media (max-width: 600px) {
+  .PG-product-list {
+    gap: 24px;
+    padding: 0 24px;
+  }
+
+  .product-block {
+    width: 100%;
   }
 }
 
@@ -683,6 +757,16 @@
   .monthly-event img {
     width: 150px;
     height: 100px;
+  }
+}
+
+@media (max-width: 900px) {
+  .background-logo img {
+    height: 120px;
+  }
+
+  .background-logo-left img {
+    height: 120px;
   }
 }
 

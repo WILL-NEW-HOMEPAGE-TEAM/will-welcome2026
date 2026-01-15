@@ -196,7 +196,6 @@ function getHeaderHtml() {
     { url: normalizePath(basePath, '/pages/about/index.html'), text: 'About Us', page: 'about', mobileText: 'About Us' },
     { url: normalizePath(basePath, '/pages/seminars/index.html'), text: 'ゼミについて', page: 'seminars', mobileText: 'ゼミについて' },
     { url: normalizePath(basePath, '/pages/activities/index.html'), text: '活動紹介', page: 'activities', mobileText: '活動紹介' },
-    { url: normalizePath(basePath, '/pages/events/index.html'), text: 'イベント一覧', page: 'events', mobileText: 'イベント一覧' },
     { url: normalizePath(basePath, '/pages/join/index.html'), text: '新歓・入会', page: 'join', mobileText: '新歓・入会' },
     { url: normalizePath(basePath, '/pages/faq/index.html'), text: 'お問い合わせ・FAQ', page: 'faq', mobileText: 'お問い合わせ・FAQ' }
   ];
@@ -216,7 +215,7 @@ function getHeaderHtml() {
   return `
   <header class="page-header">
     <a class="will-logo" href="${rootLink}">
-      <img src="${assetsPath}/images/logo.svg" alt="TOPページへ戻る"/>
+      <img src="${assetsPath}/images/common/will-logo_v2.svg" alt="TOPページへ戻る"/>
     </a>
     <div id="nav-wrapper" class="nav-wrapper">
       <div class="hamburger" id="js-hamburger">
@@ -259,13 +258,12 @@ function getFooterHtml() {
         /></a>
       </div>
       <div class="footer-logo">
-        <img src="${assetsPath}/images/footer-logo.svg" alt="" />
-        <img src="${assetsPath}/images/footer-full-logo.webp" alt="" />
+        <img src="${assetsPath}/images/common/will-logo_initial.svg" alt="" />
+        <img src="${assetsPath}/images/common/will-logo_full.svg" alt="" />
       </div>
     </div>
     <div class="footer-copyright">
-      <img src="${assetsPath}/images/copyright.svg" alt="" />
-      <p class="copyright-text">Waseda IT Leader Lab 2025</p>
+      <p class="copyright-text">© WASEDA IT Leader Lab 2026</p>
     </div>
   </footer>`;
 }

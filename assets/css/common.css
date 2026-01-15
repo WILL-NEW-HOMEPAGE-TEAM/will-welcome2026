@@ -14,6 +14,9 @@
   --white: #ffffff;
   --ivory-50: rgba(255, 252, 247, 0.5);
 
+  /* ナビメニューのホバーアニメーション時間 */
+  --nav-hover-transition: 0.0s;
+
   --font_70: 70px;
   --font_60: 60px;
   --font_48: 48px;
@@ -87,6 +90,11 @@ body {
   display: flex;
   height: 100%;
 }
+
+.will-logo img {
+  height: 48px;
+  width: auto;
+}
 .link-box {
   display: flex;
   align-items: center;
@@ -107,7 +115,7 @@ body {
   text-decoration: none;
   padding: 8px 16px;
   border-radius: 4px;
-  transition: background 0.3s, color 0.3s;
+  transition: background var(--nav-hover-transition), color var(--nav-hover-transition);
 }
 
 .text-link:hover {
@@ -355,8 +363,8 @@ body {
 /* ヘッダー文字の統一スタイル */
 .head-letter {
     position: absolute;
-    right: 49px;
-    bottom: 55px;
+    right: 48px;
+    bottom: 56px;
     font-size: 70px;
     font-family: "Noto Sans JP", sans-serif;
     color: #fffcf7;
@@ -364,6 +372,12 @@ body {
     font-weight: 700;
     line-height: normal;
     z-index: 2; /* 画像の上に表示 */
+    background-color: rgba(0, 0, 0, 0.6); /* 半透明の背景ボックス */
+    padding: 0 20px 12px 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* レスポンシブ対応 */
@@ -373,9 +387,10 @@ body {
     }
     
     .head-letter {
-        font-size: 50px;
+        font-size: var(--font_48);
         right: 30px;
         bottom: 40px;
+        padding: 10px 16px;
     }
 }
 
@@ -388,6 +403,7 @@ body {
         font-size: 36px;
         right: 20px;
         bottom: 30px;
+        padding: 8px 14px;
     }
 }
 
@@ -400,6 +416,7 @@ body {
         font-size: 28px;
         right: 15px;
         bottom: 20px;
+        padding: 6px 12px;
     }
 }
 
@@ -463,6 +480,16 @@ body {
   align-items: center;
   gap: 30px;
   display: flex;
+}
+
+.footer-logo img:first-child {
+  height: 40px;
+  width: auto;
+}
+
+.footer-logo img:last-child {
+  height: 21px;
+  width: auto;
 }
 
 .footer-copyright {
@@ -660,9 +687,7 @@ body {
   }
 
   .head-letter {
-    font-size: var(--font_32);
-    right: 20px;
-    bottom: 20px;
+    padding: 8px 14px;
   }
 
   .footer {

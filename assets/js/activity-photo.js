@@ -73,6 +73,34 @@ function getAssetsPathForActivityPhotos() {
   return '/assets';
 }
 
+// 画像のアスペクト比を判定してクラスを追加する関数
+function setImageAspectRatioClass(img) {
+  if (img.complete && img.naturalWidth && img.naturalHeight) {
+    // 画像が既に読み込まれている場合
+    const aspectRatio = img.naturalWidth / img.naturalHeight;
+    // 縦長の画像（アスペクト比が1未満）はportrait、横長はlandscape
+    if (aspectRatio < 1) {
+      img.classList.add('portrait');
+      img.classList.remove('landscape');
+    } else {
+      img.classList.add('landscape');
+      img.classList.remove('portrait');
+    }
+  } else {
+    // 画像がまだ読み込まれていない場合、読み込み完了を待つ
+    img.addEventListener('load', function() {
+      const aspectRatio = img.naturalWidth / img.naturalHeight;
+      if (aspectRatio < 1) {
+        img.classList.add('portrait');
+        img.classList.remove('landscape');
+      } else {
+        img.classList.add('landscape');
+        img.classList.remove('portrait');
+      }
+    });
+  }
+}
+
 // トップページのカルーセル用に活動写真を表示
 function displayActivityPhotosForCarousel() {
   const carouselInner = document.querySelector('.carousel-inner');
@@ -104,6 +132,12 @@ function displayActivityPhotosForCarousel() {
     `;
     
     carouselInner.appendChild(item);
+    
+    // 画像のアスペクト比を判定してクラスを追加
+    const img = item.querySelector('img');
+    if (img) {
+      setImageAspectRatioClass(img);
+    }
   });
 }
 
@@ -135,6 +169,12 @@ function displayActivityPhotosForSlider() {
     `;
     
     slider.appendChild(slide);
+    
+    // 画像のアスペクト比を判定してクラスを追加
+    const img = slide.querySelector('img');
+    if (img) {
+      setImageAspectRatioClass(img);
+    }
   });
   
   // 複製されたスライドを追加（スムーズなループ用）
@@ -155,6 +195,12 @@ function displayActivityPhotosForSlider() {
     `;
     
     slider.appendChild(slide);
+    
+    // 画像のアスペクト比を判定してクラスを追加
+    const img = slide.querySelector('img');
+    if (img) {
+      setImageAspectRatioClass(img);
+    }
   });
 }
 
