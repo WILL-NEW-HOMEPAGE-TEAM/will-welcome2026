@@ -295,6 +295,7 @@ canvas {
 .button-frame.button-gray {
   display: flex;
   padding: 16px 20px;
+  margin: 0 auto;
   justify-content: center;
   align-items: center;
   gap: 10px;
