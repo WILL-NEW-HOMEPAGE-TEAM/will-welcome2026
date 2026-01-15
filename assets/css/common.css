@@ -644,7 +644,7 @@ body {
   }
 
   .sp-nav a.active::before {
-    content: '▶';
+    /* content: '▶'; */
     position: absolute;
     left: 0;
     font-size: var(--font_20);
