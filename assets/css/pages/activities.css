@@ -397,7 +397,7 @@
   gap: 40px;
   background: var(--shinonome);
   position: relative;
-  z-index: -2;
+  z-index: 0;
 }
 
 .PG-product-section .section-title {
@@ -441,19 +441,23 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  cursor: pointer;
   text-decoration: none;
   flex: 0 0 auto;
   width: calc((100% - 144px) / 4);
-}
-
-.product-block:hover {
-  text-decoration: underline 1px solid var(--shinonome);
+  pointer-events: none;
 }
 
 .product-photoframe {
   border-radius: 12px;
   background: #393939;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-photoframe:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 .product-photoframe img {
